@@ -1,0 +1,40 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'jobipy/css/index.css' %}" rel="stylesheet"> 
+{% endblock %}
+{% block script %}
+<script src="{% static 'jobipy/scripts/index.js' %}"></script>
+{% endblock %}
+
+{% block nav %}
+<div id='sign-in-div'>
+    <div id="sign-in">
+        <img src="{% static 'jobipy/images/login.png' %}" alt="login">
+        <div>Sign in</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div id="content">
+    <div id="search">
+        <div id="search-inputs">
+            <input id="search-job" type="text" placeholder="Search for jobs">
+            <input id="search-city" type="text" placeholder="City, State">
+        </div>
+        <div id="search-button">
+            <button>Search for jobs</button>
+        </div>
+    </div>
+    <div id="headliner">
+        <div>
+            Connecting Talent with Opportunity: Empowering Careers, Enabling Growth with JOBIPY
+        </div>
+        <button id="start-button">Start Here</button>
+    </div>
+</div>
+
+{% endblock %}

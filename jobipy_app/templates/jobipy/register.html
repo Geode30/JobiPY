@@ -1,0 +1,52 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'jobipy/css/register.css' %}" rel="stylesheet"> 
+{% endblock %}
+
+{% block script %}
+ <script src="{% static 'jobipy/scripts/register.js' %}"></script>
+{% endblock %}
+
+{% block nav %}
+
+<a id="sign-in-a">
+    <div id="sign-in">
+        <img src="{% static 'jobipy/images/login.png' %}" alt="login">
+        <div>Sign in</div>
+    </div>
+</a>
+{% endblock %}
+
+{% block content %}
+
+<div id="content">
+    <div id="sign-up-title">Sign up</div>
+    {% csrf_token %}
+    <form id="sign-up-form">
+        <div id="first-name-div">
+            <div>First Name:</div>
+            <input type="text" id="first-name-input" autofocus required onkeypress="return /[a-zA-Z ]/i.test(event.key)">
+        </div>
+        <div id="last-name-div">
+            <div>Last Name:</div>
+            <input type="text" id="last-name-input" required onkeypress="return /[a-zA-Z ]/i.test(event.key)">
+        </div>
+        <div id="email-div">
+            <div>Email:</div>
+            <input type="text" id="email-input" required onkeypress="return /^[a-zA-Z0-9.@\s]+$/i.test(event.key)">
+        </div>
+        <div id="password-div">
+            <div>Password:</div>
+            <input type="password" id="password-input" required>
+        </div>
+        <div id="confirm-pass-div">
+            <div>Confirm Password:</div>
+            <input type="password" id="confirm-pass-input" required>
+        </div>
+        <input type="submit" value="Register"/>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'jobipy/css/login.css' %}" rel="stylesheet"> 
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'jobipy/scripts/login.js' %}"></script>
+{% endblock %}
+
+{% block nav %}
+<a id="sign-up-a">
+    <div id="sign-up">
+        <img src="{% static 'jobipy/images/signup.png' %}" alt="signup">
+        <div>Sign up</div>
+    </div>
+</a>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <div id="sign-in-title">Sign-in</div>
+    <form id="sign-in-form">
+        <div id="email-div">
+            <div>Email:</div>
+            <input type="text" id='email-input' autofocus required onkeypress="return /^[a-zA-Z0-9.@\s]+$/i.test(event.key)">
+        </div>
+        <div id="password-div">
+            <div>Password:</div>
+            <input type="password" id='password-input' required>
+        </div>
+        <input type="submit" value="Login" id="login-input"/>
+    </form>
+</div>
+{% endblock %}

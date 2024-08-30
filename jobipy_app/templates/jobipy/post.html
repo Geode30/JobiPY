@@ -1,0 +1,76 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'jobipy/css/post.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'jobipy/scripts/post.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    {% csrf_token %}
+    <form id="post-form">
+        <div id="title">Post a job</div>
+        <div id="industry-div">
+            <div>Industry:</div>
+            <select name="industry", id="industry">
+                <option value="IT">Information Technology</option>
+                <option value="Finance">Finance</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="Tourism">Hospitality and Tourism</option>
+                <option value="Construction">Construction</option>
+            </select>
+        </div>
+
+        <div id="company-name-div">
+            <div>Company Name:</div>
+            <input type="text" id="company-name-input" required>
+        </div>
+        <div id="city-div">
+            <div>City, State:</div>
+            <input type="text" id="city-input" required>
+        </div>
+        <div id="job-title-div">
+            <div>Job Title:</div>
+            <input type="text" id="job-title-input" required>
+        </div>
+        <div id="description-div">
+            <div>Description:</div>
+            <textarea id="description-input" required></textarea>
+        </div>
+        <div id="minimum-pay-div">
+            <div>Minimum base pay:</div>
+            <div>
+            <input type="text" id="minimum-pay-input" required>
+            <select id="per">
+                <option value="month">Per month</option>
+                <option value="year">Per year</option>
+                <option value="hour">Per hour</option>
+            </select>
+            </div>
+        </div>
+        <div id="job-type-div">
+            <div>Job type:</div>
+            <div>
+                <div>
+                    <label for="full-time">Full-time</label>
+                    <input id="full-time" type="checkbox" value='Full-time'>
+                </div>
+                <div>
+                    <label for="part-time">Part-time</label>
+                    <input id="part-time" type="checkbox" value="Part-Time">
+                </div>
+                <div>
+                    <label for="intern">Intern</label>
+                    <input id="intern" type="checkbox" value="Intern">
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" value="Post">
+    </form>
+</div>
+{% endblock %}

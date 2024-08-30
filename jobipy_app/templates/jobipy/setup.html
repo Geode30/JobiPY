@@ -1,0 +1,89 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'jobipy/css/setup.css' %}" rel="stylesheet"> 
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'jobipy/scripts/setup.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<form id="content">
+    <div id="preferences-div">
+        <div id="preferences-title">Set up your preferences</div>
+        <div id="industry-div">
+            <div>Industry:</div>
+            <select name="industry", id="industry">
+                <option value="IT">Information Technology</option>
+                <option value="Finance">Finance</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="Tourism">Hospitality and Tourism</option>
+                <option value="Construction">Construction</option>
+            </select>
+        </div>
+        <div id="minimum-pay-div">
+            <div>Minimum base pay:</div>
+            <div>
+            <input type="text" id="minimum-pay-input" required>
+            <select id="per">
+                <option value="month">Per month</option>
+                <option value="year">Per year</option>
+                <option value="hour">Per hour</option>
+            </select>
+            </div>
+
+        </div>
+        <div id="job-type-div">
+            <div>Job type:</div>
+            <div>
+                <div>
+                    <label for="full-time">Full-time</label>
+                    <input id="full-time" type="checkbox" value='Full-time'>
+                </div>
+                <div>
+                    <label for="part-time">Part-time</label>
+                    <input id="part-time" type="checkbox" value="Part-Time">
+                </div>
+                <div>
+                    <label for="intern">Intern</label>
+                    <input id="intern" type="checkbox" value="Intern">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about-self-div" >
+        <div id="about-title">About Yourself</div>
+        <div id="name-div">
+            <div>Name:</div>
+            <input type="text" id="name-input" required>
+        </div>
+        <div id="email-div">
+            <div>Email:</div>
+            <input type="text" id="email-input" required>
+        </div>
+        <div id="contact-div">
+            <div>Contact Number:</div>
+            <input type="text" id="contact-input" required>
+        </div>
+        <div id="city-div">
+            <div>City, State:</div>
+            <input type="text" id="city-input" required>
+        </div>
+        <div id="resume-div">
+            <div>Upload your resume:</div>
+            <input type="file" id="myFileInput" accept='application/pdf' style="display: none;">
+            <label for="myFileInput" class="custom-file-button">Choose File</label>
+        </div>
+    </div>
+
+    <input type="submit" value="Save" id="save-button"/>
+</form>
+<div id="loading-div" style="display: none;">
+    <div class="spinner" id="loading-div"></div>
+</div>
+
+{% endblock %}
