@@ -1,0 +1,28 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'jobipy/css/message.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'jobipy/scripts/message.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <div id="message-div">
+        <div id="contacts-div">
+            <p>Companies</p>
+        </div>
+        <div id="convo-div">
+            <p id="chat-friend-p">Jhio</p>
+            <div id="messages-div"></div>
+            <div id="send-div">
+                <textarea name="message" id="message-textarea"></textarea>
+                <button id="send-button" class="btn btn-primary">Send</button>    
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

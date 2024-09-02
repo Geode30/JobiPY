@@ -1,0 +1,31 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'jobipy/css/posted.css' %}">
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'jobipy/scripts/posted.js' %}"></script>
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div id="content">
+    <button id="post-button" class="btn btn-primary">
+        <a href="{% url 'post' %}">
+            Create a Job Post
+        </a>
+    </button>
+    <div id="job-div">
+        <div id="job-list-div"></div>
+        <div id="job-desc-div">
+            <div style="font-size: 3em; font-weight: bold; text-align: center; margin-top: 5em;">Select a Job Post</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
