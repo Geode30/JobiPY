@@ -345,6 +345,30 @@ def api_search(request, job_title, city=None):
         job_list.append(_job)    
     return JsonResponse({'jobs': job_list})
     
+def api_posted(request):
+    user = User.objects.get(id=request.session['user_id'])
+    posted_jobs = Job_Post.objects.filter(poster=user).order_by('-date_posted')
+        
+    job_list = []
+
+    print(posted_jobs)
+    
+    for job in posted_jobs:
+        _job = {
+            'id': job.id,
+            'poster': job.poster.name,
+            'job_title': job.job_title,
+            'company': job.company,
+            'city': job.city,
+            'description': job.job_description,
+            'pay': job.pay,
+            'per': job.per,
+            'job_type': job.job_type,
+            'date_posted': job.date_posted
+        }
+        job_list.append(_job)    
+    return JsonResponse({'jobs': job_list})
+
 def display_resume_img(id):
     user = User.objects.get(id=id)
     image_path = user.resume_image

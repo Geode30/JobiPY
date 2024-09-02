@@ -7,9 +7,12 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
     path('setup', views.setup, name='setup'),
-    path('home', views.home, name='home'),
+    path('jobs', views.jobs, name='jobs'),
     path('post', views.post, name='post'),
     path('profile', views.profile, name='profile'),
+    path('message/<str:group_name>', views.message, name='message'),
+    path('posted', views.posted, name='posted'),
+
     
     # API Routes
     
@@ -24,4 +27,5 @@ urlpatterns = [
     path("api/resume", api_views.api_replace_resume, name='api_resume'),
     path("api/apply", api_views.api_apply, name='api_apply'),
     re_path(r'^api/search/(?P<job_title>[^/]+)(?:/(?P<city>[^/]+))?/$', api_views.api_search, name='api_search'),
+    path("api/posted", api_views.api_posted, name='api_posted'),
 ]
