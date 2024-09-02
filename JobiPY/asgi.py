@@ -2,15 +2,15 @@ import os
 from channels.routing import ProtocolTypeRouter, URLRouter
 from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
-import jobipy_app.routing
+from jobipy_app.routing import websocket_urlpatterns
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'JobiPY.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chat_project.settings')
 
 application = ProtocolTypeRouter({
     'http': get_asgi_application(),
     'websocket': AuthMiddlewareStack(
         URLRouter(
-            jobipy_app.routing.websocket_urlpatterns
+            websocket_urlpatterns
         )
-    )
+    ),
 })

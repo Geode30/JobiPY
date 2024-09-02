@@ -1,0 +1,65 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'jobipy/css/home.css' %}" rel="stylesheet"> 
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'jobipy/scripts/homeAnimations.js' %}"></script>
+    <script src="{% static 'jobipy/scripts/home.js' %}"></script>
+{% endblock %}
+
+{% block nav %}
+<div id="close-all-divs">
+    
+</div>
+<div id="menu-div">
+    <img id="close-menu" src="{% static '/jobipy/images/close.png' %}" alt="">
+    <div id="name-div">Name</div>
+    <a href="{% url 'profile' %}" id="profile-a">Profile</a>
+    <a id="activities-a">My Activities</a>
+    <a href="{% url 'post' %}" id="switch-mode-a">Post a Job</a>
+    <a id="logout-a">Logout</a>
+</div>
+<div id="message-div">
+    <img id="close-message" src="{% static '/jobipy/images/close.png' %}" alt="">
+    <div></div>
+</div>
+<div id="nav-div" class="close-all-divs">
+    <div id="message-icon-div">
+        <img src="{% static '/jobipy/images/message.png' %}" alt="msg">
+    </div>
+    <div id="notification-icon-div">
+        <img src="{% static '/jobipy/images/notification.png' %}" alt="msg">
+    </div>
+    <div id="menu-icon-div">    
+        <img src="{% static '/jobipy/images/menu.png' %}" alt="msg">
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div id="content">
+    <div id="search-div">
+        <div id="search-inputs">
+            <input id="search-job" type="text" placeholder="Search for jobs">
+            <input id="search-city" type="text" placeholder="City, State">
+        </div>
+        <div id="search-button-div">
+            <button id="search-button">Search for jobs</button>
+        </div>
+    </div>
+    <div id="job-div">
+        <div id="job-list-div"></div>
+        <div id="job-desc-div">
+            <div style="font-size: 3em; font-weight: bold; text-align: center; margin-top: 5em;">Select a Job Post</div>
+        </div>
+    </div>
+</div>
+<div id="loading-div" style="display: none;">
+    <div class="spinner" id="loading-div"></div>
+</div>
+
+{% endblock %}

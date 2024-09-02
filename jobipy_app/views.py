@@ -12,7 +12,7 @@ def index(request):
         return render(request, 'jobipy/index.html')
     
     if request.session['user_id'] > 0:
-        return HttpResponseRedirect(reverse('jobs'))
+        return HttpResponseRedirect(reverse('home'))
     else:
         return render(request, 'jobipy/index.html')
 
@@ -21,7 +21,7 @@ def register(request):
         return render(request, 'jobipy/register.html')
     
     if request.session['user_id'] > 0:
-        return HttpResponseRedirect(reverse('jobs'))
+        return HttpResponseRedirect(reverse('home'))
     else:
         return render(request, 'jobipy/register.html')
 
@@ -30,7 +30,7 @@ def login(request):
         return render(request, 'jobipy/login.html')
     
     if request.session['user_id'] > 0:
-        return HttpResponseRedirect(reverse('jobs'))
+        return HttpResponseRedirect(reverse('home'))
     else:
         return render(request, 'jobipy/login.html')
 
@@ -43,12 +43,12 @@ def setup(request):
     else:
         return HttpResponseRedirect(reverse('index'))
     
-def jobs(request):
+def home(request):
     if 'user_id' not in request.session:
         return render(request, 'jobipy/index.html')
     
     if request.session['user_id'] > 0:
-        return render(request, 'jobipy/jobs.html')
+        return render(request, 'jobipy/home.html')
     else:
         return HttpResponseRedirect(reverse('index'))
 
@@ -72,17 +72,3 @@ def profile(request):
         })
     else:
         return HttpResponseRedirect(reverse('index'))
-    
-def posted(request):
-    if 'user_id' not in request.session:
-        return render(request, 'jobipy/index.html')
-    
-    if request.session['user_id'] > 0:
-        return render(request, 'jobipy/posted.html')
-    else:
-        return HttpResponseRedirect(reverse('index'))
-
-def message(request, group_name):
-    return render(request, 'jobipy/message.html', {
-        'group_name': group_name
-    })
