@@ -12,7 +12,7 @@ def index(request):
         return render(request, 'jobipy/index.html')
     
     if request.session['user_id'] > 0:
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('jobs'))
     else:
         return render(request, 'jobipy/index.html')
 
@@ -21,7 +21,7 @@ def register(request):
         return render(request, 'jobipy/register.html')
     
     if request.session['user_id'] > 0:
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('jobs'))
     else:
         return render(request, 'jobipy/register.html')
 
@@ -30,7 +30,7 @@ def login(request):
         return render(request, 'jobipy/login.html')
     
     if request.session['user_id'] > 0:
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('jobs'))
     else:
         return render(request, 'jobipy/login.html')
 
@@ -43,12 +43,12 @@ def setup(request):
     else:
         return HttpResponseRedirect(reverse('index'))
     
-def home(request):
+def jobs(request):
     if 'user_id' not in request.session:
         return render(request, 'jobipy/index.html')
     
     if request.session['user_id'] > 0:
-        return render(request, 'jobipy/home.html')
+        return render(request, 'jobipy/jobs.html')
     else:
         return HttpResponseRedirect(reverse('index'))
 
@@ -70,5 +70,25 @@ def profile(request):
         return render(request, 'jobipy/profile.html', {
             'image_path': image_path
         })
+    else:
+        return HttpResponseRedirect(reverse('index'))
+    
+def message(request, group_name): 
+    if 'user_id' not in request.session:
+        return render(request, 'jobipy/index.html')
+    
+    if request.session['user_id'] > 0:
+        return render(request, 'jobipy/message.html', {
+            'group_name': group_name
+        })
+    else:
+        return HttpResponseRedirect(reverse('index'))
+
+def posted(request): 
+    if 'user_id' not in request.session:
+        return render(request, 'jobipy/index.html')
+    
+    if request.session['user_id'] > 0:
+        return render(request, 'jobipy/posted.html')
     else:
         return HttpResponseRedirect(reverse('index'))
