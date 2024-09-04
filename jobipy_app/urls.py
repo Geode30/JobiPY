@@ -26,6 +26,10 @@ urlpatterns = [
     path("api/replace/resume", api_views.api_replace_resume, name='api_resume'),
     path("api/apply", api_views.api_apply, name='api_apply'),
     path("api/posted", api_views.api_posted, name='api_posted'),
-    path("api/resume/<str:name>", api_views.api_resume, name='api_resume_name'),
+    path("api/resume/<int:id>", api_views.api_resume, name='api_resume_name'),
+    path("api/group", api_views.api_group_name, name='api_group_name'),
+    path("api/conversation", api_views.api_conversation, name='api_conversation'),
+    path("api/retrieve/conversation/group/<str:group_name>", api_views.api_retrieve_conversation_group, name='api_retrieve_conversation_group'),
+    path("api/retrieve/conversation/id/<int:id>", api_views.api_retrieve_conversation_id, name='api_retrieve_conversation_id'),
     re_path(r'^api/search/(?P<job_title>[^/]+)(?:/(?P<city>[^/]+))?/$', api_views.api_search, name='api_search'),
 ]

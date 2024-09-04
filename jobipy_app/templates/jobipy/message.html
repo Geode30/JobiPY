@@ -10,19 +10,23 @@
 {% endblock %}
 
 {% block content %}
+<input type="hidden" id="group-name" value="{{ group_name }}">
 <div id="content">
-    <div id="message-div">
+    <div id="message-div" style="display: none;">
         <div id="contacts-div">
             <p>Companies</p>
         </div>
         <div id="convo-div">
-            <p id="chat-friend-p">Jhio</p>
+            <p id="chat-mate-p"></p>
             <div id="messages-div"></div>
             <div id="send-div">
                 <textarea name="message" id="message-textarea"></textarea>
                 <button id="send-button" class="btn btn-primary">Send</button>    
             </div>
         </div>
+    </div>
+    <div id="no-messages-div" style="display: none;">
+        There are no messages here
     </div>
 </div>
 {% endblock %}

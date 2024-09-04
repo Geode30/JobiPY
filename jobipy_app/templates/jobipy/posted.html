@@ -28,7 +28,15 @@
     </div>
 </div>
 <div id="resume-div" style="display: none;">
-    <!-- <img id="" src="{% static 'jobipy/images/close_white.png' %}" alt="close"> -->
+    <div id="action-div">
+        <button class="btn btn-primary" id="message-button">Send message to this applicant</button>
+        <label for="status">Set the status:</label>
+        <select name="status", id="status">
+            <option value="IT">Interested</option>
+            <option value="Finance">Not Interested</option>
+        </select>    
+        <button class="btn btn-success" id="save-button">Save</button>
+    </div>
     <img id="resume-img" type="application/pdf"/>
 </div>
 

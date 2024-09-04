@@ -1,9 +1,11 @@
-from .models import User, Preferences, Job_Post
+from .models import User, Preferences, Job_Post, Conversation, Message
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import re
 import datetime
+import random
+import string
 
 from pdf2jpg import pdf2jpg
 import os
@@ -355,7 +357,11 @@ def api_posted(request):
     for job in posted_jobs:
         users = []
         for _user in job.users_applied.all():
-            users.append(_user.name)
+            __user = {
+                'id': _user.id,
+                'name': _user.name
+            }
+            users.append(__user)
         
         _job = {
             'id': job.id,
@@ -370,18 +376,88 @@ def api_posted(request):
             'date_posted': job.date_posted,
             'users_applied': users
         }
-        print(users)
         job_list.append(_job)
         
     return JsonResponse({'jobs': job_list})
 
-def api_resume(request, name):
-    user = User.objects.get(name=name)
+def api_resume(request, id):
+    user = User.objects.get(id=id)
     image_path = user.resume_image
 
     return JsonResponse ({
         'resume_path': image_path
     })
+
+def api_group_name(request):
+    characters = string.ascii_letters + string.digits
+    random_string = ''.join(random.choices(characters, k=10))
+    
+    return JsonResponse({
+        'group_name': random_string
+    })
+
+def api_conversation(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        data_group_name = data['group_name']
+        data_id = data['id']
+        
+        current_user = User.objects.get(id=request.session['user_id'])
+        chatmate = User.objects.get(id=data_id)
+        
+        conversation = Conversation(group_name=data_group_name)
+        conversation.save()
+        
+        for user in [current_user, chatmate]:
+            conversation.people.add(user)
+            conversation.save()
+        
+        return JsonResponse({
+            'message': 'Conversation Created Successfully'
+        })
+
+def api_retrieve_conversation_group(request, group_name):
+    user = User.objects.get(id=request.session['user_id'])
+    chatmate = {}
+    try:
+        conversation = Conversation.objects.get(group_name=group_name)
+        for _user in conversation.people.all():
+            if _user is not user:
+                chatmate = {
+                    'id': _user.id,
+                    'name': _user.name
+                }
+    except Conversation.DoesNotExist:
+        conversation = None  
+
+    if conversation is not None:
+        return JsonResponse({
+            'message': 'Success',
+            'chatmate': chatmate
+        })
+    else:
+        return JsonResponse({
+            'message': 'Failed'
+        })
+
+def api_retrieve_conversation_id(request, id):
+    current_user = User.objects.get(id=request.session['user_id'])
+    chatmate = User.objects.get(id=id)
+    try:
+        conversation = Conversation.objects.filter(people__in=[current_user, chatmate]).first()
+        print(conversation)
+    except Conversation.DoesNotExist:
+        conversation = None  
+
+    if conversation is not None:
+        return JsonResponse({
+            'message': 'Success',
+            'group_name': conversation.group_name
+        })
+    else:
+        return JsonResponse({
+            'message': 'Failed'
+        })
 
 def display_resume_img(id):
     user = User.objects.get(id=id)
