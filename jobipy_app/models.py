@@ -54,10 +54,13 @@ class Conversation(models.Model):
     id = models.AutoField(primary_key=True)
     group_name = models.CharField(max_length=50)
     people = models.ManyToManyField('User', related_name='people')
+    job = models.ForeignKey('Job_Post', on_delete=models.CASCADE, related_name='job')
     messages = models.ManyToManyField('Message', related_name='messages')
 
 class Message(models.Model):
     id = models.AutoField(primary_key=True)
     sender = models.ForeignKey('User', on_delete=models.CASCADE, related_name='sender')
     receiver = models.ForeignKey('User', on_delete=models.CASCADE, related_name='receiver')
-    message = models.TextField()    
+    message = models.TextField()
+    is_read = models.BooleanField()
+    date = models.CharField(max_length=50)

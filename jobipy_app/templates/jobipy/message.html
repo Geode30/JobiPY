@@ -10,9 +10,10 @@
 {% endblock %}
 
 {% block content %}
+{% csrf_token %}
 <input type="hidden" id="group-name" value="{{ group_name }}">
 <div id="content">
-    <div id="message-div" style="display: none;">
+    <div id="convo-container-div" style="display: none;">
         <div id="contacts-div">
             <p>Companies</p>
         </div>

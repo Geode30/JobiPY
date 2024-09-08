@@ -1,6 +1,5 @@
 from .models import User, Preferences, Job_Post, Conversation, Message
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 import json
 import re
 import datetime
@@ -243,19 +242,20 @@ def api_jobs(request):
     job_list = []
     
     for job in jobs:
-        _job = {
-            'id': job.id,
-            'poster': job.poster.name,
-            'job_title': job.job_title,
-            'company': job.company,
-            'city': job.city,
-            'description': job.job_description,
-            'pay': job.pay,
-            'per': job.per,
-            'job_type': job.job_type,
-            'date_posted': job.date_posted
-        }
-        job_list.append(_job)
+        if user not in job.users_applied.all():
+            _job = {
+                'id': job.id,
+                'poster': job.poster.name,
+                'job_title': job.job_title,
+                'company': job.company,
+                'city': job.city,
+                'description': job.job_description,
+                'pay': job.pay,
+                'per': job.per,
+                'job_type': job.job_type,
+                'date_posted': job.date_posted
+            }
+            job_list.append(_job)
         
     return JsonResponse({'jobs': job_list})
 
@@ -401,11 +401,13 @@ def api_conversation(request):
         data = json.loads(request.body)
         data_group_name = data['group_name']
         data_id = data['id']
+        job_id = data['job_id']
         
+        job = Job_Post.objects.get(id=job_id)
         current_user = User.objects.get(id=request.session['user_id'])
         chatmate = User.objects.get(id=data_id)
         
-        conversation = Conversation(group_name=data_group_name)
+        conversation = Conversation(group_name=data_group_name, job=job)
         conversation.save()
         
         for user in [current_user, chatmate]:
@@ -419,34 +421,61 @@ def api_conversation(request):
 def api_retrieve_conversation_group(request, group_name):
     user = User.objects.get(id=request.session['user_id'])
     chatmate = {}
+    messages = []
     try:
         conversation = Conversation.objects.get(group_name=group_name)
         for _user in conversation.people.all():
-            if _user is not user:
+            if _user != user:
                 chatmate = {
                     'id': _user.id,
                     'name': _user.name
                 }
+        
+        for message in conversation.messages.all().order_by('date'):
+
+            sender = {
+                'id': message.sender.id,
+                'name': message.sender.name
+            }
+            receiver = {
+                'id': message.receiver.id,
+                'name': message.receiver.name
+            }
+            _message = {
+                'message': message.message,
+                'sender': sender,
+                'receiver': receiver,
+                'date': message.date
+            }
+            messages.append(_message)
     except Conversation.DoesNotExist:
         conversation = None  
+    
+    user = {
+        'id': user.id,
+        'name': user.name
+        }
 
     if conversation is not None:
         return JsonResponse({
             'message': 'Success',
-            'chatmate': chatmate
+            'current_user': user,
+            'chatmate': chatmate,
+            'id': conversation.id,
+            'messages': messages
         })
     else:
         return JsonResponse({
             'message': 'Failed'
         })
 
-def api_retrieve_conversation_id(request, id):
-    current_user = User.objects.get(id=request.session['user_id'])
-    chatmate = User.objects.get(id=id)
+def api_retrieve_conversation_id(request, id, job_id):
     try:
-        conversation = Conversation.objects.filter(people__in=[current_user, chatmate]).first()
-        print(conversation)
-    except Conversation.DoesNotExist:
+        current_user = User.objects.get(id=request.session['user_id'])
+        chatmate = User.objects.get(id=id)
+        job = Job_Post.objects.get(id=job_id)
+        conversation = Conversation.objects.filter(people__in=[current_user, chatmate], job=job).first()
+    except (Conversation.DoesNotExist, Job_Post.DoesNotExist):
         conversation = None  
 
     if conversation is not None:
@@ -458,6 +487,43 @@ def api_retrieve_conversation_id(request, id):
         return JsonResponse({
             'message': 'Failed'
         })
+
+def api_message(request):
+    data = json.loads(request.body)
+    conversation_id = data['conversation_id']
+    message = data['message']
+    current_user = User.objects.get(id=request.session['user_id'])
+    chatmate = {}
+    conversation = Conversation.objects.get(id=conversation_id)
+    current_date = datetime.datetime.now()
+    formatted_date = current_date.strftime("%B %d, %Y, %I:%M:%S %p")
+    
+    for user in conversation.people.all():
+        if user != current_user:
+            chatmate = user
+    
+    message = Message(sender=current_user, receiver=chatmate, message=message, is_read=False, date=formatted_date)
+    message.save()
+    conversation.messages.add(message)
+    conversation.save()
+    
+    return JsonResponse({
+        'message': 'Message created. Saved to the conversation'
+    })
+
+def api_read(request):
+    data = json.loads(request.body)
+    conversation_id = data['id']
+    conversation = Conversation.objects.get(id=conversation_id)
+    
+    for message in conversation.messages.filter(is_read=False).order_by('date'):
+        _message = Message.objects.get(id=message.id) 
+        _message.is_read = True
+        _message.save()
+            
+    return JsonResponse({
+        'message': 'Messages Read'
+    })
 
 def display_resume_img(id):
     user = User.objects.get(id=id)
