@@ -26,6 +26,10 @@
 
         <script src="{% static 'jobipy/scripts/toIndex.js' %}"></script>
         
+        {% block menu_script %}
+            <script src="{% static 'jobipy/scripts/menu.js' %}"></script>
+        {% endblock %}
+
         {% block script %}
         {% endblock %}
     </head>
@@ -37,6 +41,15 @@
                     JOBIPY
                 </div>
             </div>
+            {% block online_nav %}
+            <div id='menu-div-big'>
+                <a href="{% url 'profile' %}" id="profile-a-big">Profile</a>
+                <a href="{% url 'jobs' %}" id="jobs-a-big">Jobs</a>
+                <a id="activities-a-big">My Activities</a>
+                <a href="{% url 'posted' %}" id="posted-a-big">Employer Mode</a>
+                <a id="logout-a-big">Logout</a>
+            </div>
+            {% endblock %}
             {% block nav %} {% endblock %}
         </div>
         {% block content %}

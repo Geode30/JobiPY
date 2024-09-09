@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from . import api_views
+from .api import api_overall
 
 
 # Create your views here.
@@ -66,7 +66,7 @@ def profile(request):
         return render(request, 'jobipy/index.html')
     
     if request.session['user_id'] > 0:                
-        image_path = api_views.display_resume_img(request.session['user_id'])
+        image_path = api_overall.display_resume_img(request.session['user_id'])
         return render(request, 'jobipy/profile.html', {
             'image_path': image_path
         })

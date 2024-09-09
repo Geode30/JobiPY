@@ -4,12 +4,18 @@
 {% block styles %}
     <link href="{% static 'jobipy/css/index.css' %}" rel="stylesheet"> 
 {% endblock %}
+
+{% block menu_script %}
+{% endblock %}
+
 {% block script %}
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="{% static 'jobipy/scripts/index.js' %}"></script>
 {% endblock %}
 
 {% block nav %}
+{% block online_nav %}
+{% endblock %}
 <div id='sign-in-div'>
     <div id="sign-in">
         <img src="{% static 'jobipy/images/login.png' %}" alt="login">

@@ -41,10 +41,16 @@ def api_notification(request):
     current_user = User.objects.get(id=request.session['user_id'])
     conversations = Conversation.objects.filter(people=current_user)
     
-    conversations_with_unread_messages = conversations.filter(messages__is_read=False)
-    
+    conversations_with_unread_messages = conversations.filter(messages__is_read=False, messages__receiver=current_user).distinct()
+
+    print(conversations_with_unread_messages)
     return JsonResponse({
         'message': 'Success',
         'message_notification': conversations_with_unread_messages.count()
     })
-            
+
+def display_resume_img(id):
+    user = User.objects.get(id=id)
+    image_path = user.resume_image
+
+    return image_path

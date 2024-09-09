@@ -27,11 +27,12 @@ def api_message(request):
     })
     
 def api_read(request):
+    user = User.objects.get(id=request.session['user_id'])
     data = json.loads(request.body)
     conversation_id = data['id']
     conversation = Conversation.objects.get(id=conversation_id)
     
-    for message in conversation.messages.filter(is_read=False).order_by('date'):
+    for message in conversation.messages.filter(is_read=False, receiver=user).order_by('date'):
         _message = Message.objects.get(id=message.id) 
         _message.is_read = True
         _message.save()

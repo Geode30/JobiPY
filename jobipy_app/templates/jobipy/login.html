@@ -5,11 +5,16 @@
     <link href="{% static 'jobipy/css/login.css' %}" rel="stylesheet"> 
 {% endblock %}
 
+{% block menu_script %}
+{% endblock %}
+
 {% block script %}
     <script src="{% static 'jobipy/scripts/login.js' %}"></script>
 {% endblock %}
 
 {% block nav %}
+{% block online_nav %}
+{% endblock %}
 <a id="sign-up-a">
     <div id="sign-up">
         <img src="{% static 'jobipy/images/signup.png' %}" alt="signup">
