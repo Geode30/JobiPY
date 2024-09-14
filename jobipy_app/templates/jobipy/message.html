@@ -9,6 +9,11 @@
     <script src="{% static 'jobipy/scripts/message.js' %}"></script>
 {% endblock %}
 
+{% block menu_script %}
+    <script src="{% static 'jobipy/scripts/menuNoTitle.js' %}"></script>
+    <script src="{% static 'jobipy/scripts/overall.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 {% csrf_token %}
 <input type="hidden" id="group-name" value="{{ group_name }}">

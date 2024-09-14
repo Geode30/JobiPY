@@ -6,16 +6,15 @@
 {% endblock %}
 
 {% block menu_script %}
-{% endblock %}
-
-{% block nav %}
-{% block online_nav %}
-{% endblock %}
+<script src="{% static 'jobipy/scripts/menuNoTitle.js' %}"></script>
 {%endblock%}
 
 {% block script %}
     <script src="{% static 'jobipy/scripts/setup.js' %}"></script>
 {% endblock %}
+
+{% block nav %}
+{%endblock%}
 
 {% block content %}
 {% csrf_token %}

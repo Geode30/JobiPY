@@ -25,9 +25,13 @@
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
         <script src="{% static 'jobipy/scripts/toIndex.js' %}"></script>
+        <script src="{% static 'jobipy/scripts/menuAnimations.js' %}"></script>
         
         {% block menu_script %}
-            <script src="{% static 'jobipy/scripts/menu.js' %}"></script>
+            {% block overall_script %}
+                <script src="{% static 'jobipy/scripts/overall.js' %}"></script>
+            {% endblock %}
+            <script id='menu-script' src="{% static 'jobipy/scripts/menu.js' %}"></script>
         {% endblock %}
 
         {% block script %}
@@ -42,12 +46,47 @@
                 </div>
             </div>
             {% block online_nav %}
+            <div id="close-all-divs" class='notif-close'>
+                
+            </div>
             <div id='menu-div-big'>
-                <a href="{% url 'profile' %}" id="profile-a-big">Profile</a>
-                <a href="{% url 'jobs' %}" id="jobs-a-big">Jobs</a>
-                <a id="activities-a-big">My Activities</a>
-                <a href="{% url 'posted' %}" id="posted-a-big">Employer Mode</a>
-                <a id="logout-a-big">Logout</a>
+                <a href="{% url 'profile' %}" id="profile-a-big"> <span id="profile-span-big">Profile</span></a>
+                <a href="{% url 'jobs' %}" id="jobs-a-big"><span id="jobs-span-big">Jobs</span></a>
+                <a href="{% url 'activities' %}" id="activities-a-big"><span id="activities-span-big">My Activities</span></a>
+                <a href="{% url 'posted' %}" id="posted-a-big"><span id="posted-span-big">Employer Mode</span></a>
+                <a id="logout-a-big"><span id="logout-span-big">Logout</span></a>
+            </div>
+            
+            <div id="menu-div">
+                <img class="close" src="{% static '/jobipy/images/close.png' %}" alt="">
+                <div id="name-div">Name</div>
+                <a href="{% url 'profile' %}" id="profile-a">Profile</a>
+                <a href="{% url 'jobs' %}" id="jobs-a">Jobs</a>
+                <a id="activities-a">My Activities</a>
+                <a href="{% url 'posted' %}" id="switch-mode-a">Employer Mode</a>
+                <a id="logout-a">Logout</a>
+            </div>
+            <div id="message-div-header">
+                <img class="close" src="{% static '/jobipy/images/close.png' %}" alt="">
+                <div id="message-title">Messages</div>
+                <div id="messages-div-header"></div>
+            </div>
+            <div id="notification-div-header">
+                <img class="close notif-close" src="{% static '/jobipy/images/close.png' %}" alt="">
+                <div id="notif-title">Notifications</div>
+                <div id="notifications-div-header"></div>
+            </div>
+
+            <div id="nav-div" class="close-all-divs">
+                <div id="message-icon-div">
+                    <img src="{% static '/jobipy/images/message.png' %}" alt="msg">
+                </div>
+                <div id="notification-icon-div">
+                    <img src="{% static '/jobipy/images/notification.png' %}" alt="msg">
+                </div>
+                <div id="menu-icon-div">    
+                    <img src="{% static '/jobipy/images/menu.png' %}" alt="msg">
+                </div>
             </div>
             {% endblock %}
             {% block nav %} {% endblock %}

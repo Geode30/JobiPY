@@ -41,5 +41,5 @@ local_settings.py
 .DS_Store
 Thumbs.db
 
-# settings
-settings.py
+#jobipy checklist
+JobiPY_checklist.txt

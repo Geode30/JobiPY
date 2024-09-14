@@ -1,4 +1,4 @@
-from ..models import User, Job_Post, Conversation
+from ..models import User, Job_Post, Conversation, Job_Application
 from django.http import JsonResponse
 import json
 import random
@@ -10,13 +10,14 @@ def api_posted(request):
     
     job_list = []
     
-    
     for job in posted_jobs:
         users = []
-        for _user in job.users_applied.all():
+        
+        applications = Job_Application.objects.filter(job=job)
+        for application in applications:
             __user = {
-                'id': _user.id,
-                'name': _user.name
+                'id': application.applicant.id,
+                'name': application.applicant.name
             }
             users.append(__user)
         
@@ -37,12 +38,24 @@ def api_posted(request):
         
     return JsonResponse({'jobs': job_list})
 
-def api_resume(request, id):
+def api_view_resume(request, id, job_id):
     user = User.objects.get(id=id)
+    job = Job_Post.objects.get(id=job_id)
+    
+    application_viewed = True
+    
+    application = Job_Application.objects.get(job=job, applicant=user)
+    if application.status == 'NotViewed':
+        application.status = 'Viewed'
+        application.save()
+        application_viewed = False
+        
     image_path = user.resume_image
 
     return JsonResponse ({
-        'resume_path': image_path
+        'resume_path': image_path,
+        'application_viewed': application_viewed,
+        'application_status': application.status if application.status != 'Viewed' else 'select'
     })
 
 def api_group_name(request):
@@ -80,16 +93,39 @@ def api_retrieve_conversation_id(request, id, job_id):
         current_user = User.objects.get(id=request.session['user_id'])
         chatmate = User.objects.get(id=id)
         job = Job_Post.objects.get(id=job_id)
-        conversation = Conversation.objects.filter(people__in=[current_user, chatmate], job=job).first()
+        conversations = Conversation.objects.filter(job=job)
     except (Conversation.DoesNotExist, Job_Post.DoesNotExist):
-        conversation = None  
+        return JsonResponse({
+            'message': 'Failed'
+        }) 
 
-    if conversation is not None:
+    conversation_exist = False
+    group_name = ''
+
+    for _conversation in conversations.all():
+        if current_user in _conversation.people.all() and chatmate in _conversation.people.all():
+            conversation_exist = True
+            group_name = _conversation.group_name
+        
+        
+    if conversation_exist:
         return JsonResponse({
             'message': 'Success',
-            'group_name': conversation.group_name
+            'group_name': group_name
         })
     else:
         return JsonResponse({
             'message': 'Failed'
         })
+
+def api_set_status(request, user_id, job_id, status):
+    applicant = User.objects.get(id=user_id)
+    job = Job_Post.objects.get(id=job_id)
+    application = Job_Application.objects.get(applicant=applicant, job=job)
+    application.status_viewed = False
+    application.status = status
+    application.save()
+    
+    return JsonResponse({
+        'message': 'Success'
+    })

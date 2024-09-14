@@ -22,10 +22,16 @@ def api_login(request, email, password):
         return JsonResponse({
             'message': 'Wrong password'
         })
+    elif user.is_online:
+        return JsonResponse({
+            'message': 'This account is online in another device'
+        })
     else:
         if 'user_id' not in request.session:
             request.session['user_id'] = 0
         request.session['user_id'] = user.id
+        user.is_online = True
+        user.save()
         try:
             preferences = Preferences.objects.get(user=user)
         except Preferences.DoesNotExist:

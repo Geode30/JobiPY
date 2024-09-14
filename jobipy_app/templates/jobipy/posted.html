@@ -3,6 +3,7 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'jobipy/css/posted.css' %}">
+<link rel="stylesheet" href="{% static 'jobipy/css/loading.css' %}">
 {% endblock %}
 
 {% block script %}
@@ -21,7 +22,7 @@
     <div id="job-div">
         <div id="job-list-div"></div>
         <div id="job-desc-div">
-            <div style="font-size: 3em; font-weight: bold; text-align: center; margin-top: 5em;">Select a Job Post</div>
+            <div id="desc-title" style="font-size: 3em; font-weight: bold; text-align: center; margin-top: 5em;"></div>
         </div>
     </div>
 </div>
@@ -30,10 +31,14 @@
         <button class="btn btn-primary" id="message-button">Send message to this applicant</button>
         <label for="status">Set the status:</label>
         <select name="status", id="status">
-            <option value="IT">Interested</option>
-            <option value="Finance">Not Interested</option>
+            <option value="select" disabled selected>------ Select ------</option>
+            <option value="Interested">Interested</option>
+            <option value="NotInterested">Not Interested</option>
         </select>    
         <button class="btn btn-success" id="save-button">Save</button>
+        <div id="loading-div" style="width: fit-content; height: fit-content; margin-top: 1em; display: none;">
+            <div class="small-spinner"></div>
+        </div>
     </div>
     <img id="resume-img" type="application/pdf"/>
 </div>

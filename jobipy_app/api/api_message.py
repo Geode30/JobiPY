@@ -17,32 +17,18 @@ def api_message(request):
         if user != current_user:
             chatmate = user
     
-    message = Message(sender=current_user, receiver=chatmate, message=message, is_read=False, date=formatted_date)
+    message = Message(sender=current_user, receiver=chatmate, conversation=conversation, message=message, is_read=False, date=formatted_date)
     message.save()
-    conversation.messages.add(message)
+    conversation.updated = formatted_date
     conversation.save()
     
     return JsonResponse({
         'message': 'Message created. Saved to the conversation'
     })
-    
-def api_read(request):
-    user = User.objects.get(id=request.session['user_id'])
-    data = json.loads(request.body)
-    conversation_id = data['id']
-    conversation = Conversation.objects.get(id=conversation_id)
-    
-    for message in conversation.messages.filter(is_read=False, receiver=user).order_by('date'):
-        _message = Message.objects.get(id=message.id) 
-        _message.is_read = True
-        _message.save()
-            
-    return JsonResponse({
-        'message': 'Messages Read'
-    })
 
 def api_retrieve_conversation_group(request, group_name):
     user = User.objects.get(id=request.session['user_id'])
+    
     chatmate = {}
     messages = []
     try:
@@ -51,26 +37,27 @@ def api_retrieve_conversation_group(request, group_name):
             if _user != user:
                 chatmate = {
                     'id': _user.id,
-                    'name': _user.name
+                    'name': conversation.job.company if conversation.job.poster.name == _user.name else _user.name,
                 }
+            
+        _messages = Message.objects.filter(conversation=conversation)
         
-        for message in conversation.messages.all().order_by('date'):
-
+        for message in _messages.all().order_by('date'):
             sender = {
                 'id': message.sender.id,
-                'name': message.sender.name
+                'name': message.sender.name,
             }
             receiver = {
                 'id': message.receiver.id,
                 'name': message.receiver.name
             }
-            _message = {
+            _ = {
                 'message': message.message,
                 'sender': sender,
                 'receiver': receiver,
                 'date': message.date
             }
-            messages.append(_message)
+            messages.append(_)
     except Conversation.DoesNotExist:
         conversation = None  
     
@@ -85,6 +72,7 @@ def api_retrieve_conversation_group(request, group_name):
             'current_user': user,
             'chatmate': chatmate,
             'id': conversation.id,
+            'company': conversation.job.company,
             'messages': messages
         })
     else:

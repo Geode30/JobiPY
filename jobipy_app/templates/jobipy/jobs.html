@@ -6,37 +6,7 @@
 {% endblock %}
 
 {% block script %}
-    <script src="{% static 'jobipy/scripts/jobsAnimations.js' %}"></script>
     <script src="{% static 'jobipy/scripts/jobs.js' %}"></script>
-{% endblock %}
-
-{% block nav %}
-<div id="close-all-divs">
-    
-</div>
-<div id="menu-div">
-    <img id="close-menu" src="{% static '/jobipy/images/close.png' %}" alt="">
-    <div id="name-div">Name</div>
-    <a href="{% url 'profile' %}" id="profile-a">Profile</a>
-    <a id="activities-a">My Activities</a>
-    <a href="{% url 'posted' %}" id="switch-mode-a">Employer Mode</a>
-    <a id="logout-a">Logout</a>
-</div>
-<div id="message-div">
-    <img id="close-message" src="{% static '/jobipy/images/close.png' %}" alt="">
-    <div></div>
-</div>
-<div id="nav-div" class="close-all-divs">
-    <div id="message-icon-div">
-        <img src="{% static '/jobipy/images/message.png' %}" alt="msg">
-    </div>
-    <div id="notification-icon-div">
-        <img src="{% static '/jobipy/images/notification.png' %}" alt="msg">
-    </div>
-    <div id="menu-icon-div">    
-        <img src="{% static '/jobipy/images/menu.png' %}" alt="msg">
-    </div>
-</div>
 {% endblock %}
 
 {% block content %}
@@ -54,7 +24,7 @@
     <div id="job-div">
         <div id="job-list-div"></div>
         <div id="job-desc-div">
-            <div style="font-size: 3em; font-weight: bold; text-align: center; margin-top: 5em;">Select a Job Post</div>
+            <div id='desc-title' style="font-size: 3em; font-weight: bold; text-align: center; margin-top: 5em;"></div>
         </div>
     </div>
 </div>

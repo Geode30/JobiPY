@@ -61,6 +61,15 @@ def post(request):
     else:
         return HttpResponseRedirect(reverse('index'))
 
+def activities(request):
+    if 'user_id' not in request.session:
+        return render(request, 'jobipy/index.html')
+    
+    if request.session['user_id'] > 0:
+        return render(request, 'jobipy/activities.html')
+    else:
+        return HttpResponseRedirect(reverse('index'))
+
 def profile(request):
     if 'user_id' not in request.session:
         return render(request, 'jobipy/index.html')

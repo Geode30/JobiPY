@@ -1,0 +1,27 @@
+{% extends 'jobipy/layout.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static '/jobipy/css/activities.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script src='{% static "/jobipy/scripts/activities.js" %}'></script>
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div id="content">
+    <span>Activities</span>
+    <div id="job-div">
+        <div id="job-list-div"></div>
+        <div id="job-desc-div">
+            <div id="desc-title" style="font-size: 3em; font-weight: bold; text-align: center; margin-top: 5em;"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
