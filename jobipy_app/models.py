@@ -36,6 +36,7 @@ class Preferences(models.Model):
     minimum_base_pay = models.CharField(max_length=50)
     per = models.CharField(max_length=50)
     job_type = models.JSONField()
+    currency = models.CharField(max_length=50)
 
 class Job_Post(models.Model):
     id = models.AutoField(primary_key=True)
@@ -47,6 +48,7 @@ class Job_Post(models.Model):
     city = models.CharField(max_length=50)
     pay = models.CharField(max_length=50)
     per = models.CharField(max_length=50)
+    currency = models.CharField(max_length=50)
     job_type = models.JSONField()
     date_posted = models.CharField(max_length=50)
 
@@ -57,6 +59,7 @@ class Job_Application(models.Model):
     date_applied = models.CharField(max_length=50)
     status = models.CharField(max_length=100, default='NotViewed')
     status_viewed = models.BooleanField(default=False)
+    updated = models.CharField(max_length=50)
     
     def current_status(self):
         curr_status = ''
@@ -67,9 +70,22 @@ class Job_Application(models.Model):
         elif self.status == 'Interested':
             curr_status = "The employer is interested in your application. If you haven't been contacted yet, please be patient and wait for further updates."
         elif self.status == 'NotInterested':
-            curr_status = "The employer is not interested in your application. While this decision is final, we encourage you to apply for future opportunities that match your qualifications"
+            curr_status = "The employer is not interested in your application. While this decision is final, we encourage you to apply for future opportunities that match your qualifications."
 
         return curr_status
+    
+    def status_color(self):
+        color = ''
+        if self.status == 'NotViewed':
+            color = 'black'
+        elif self.status == 'Viewed':
+            color = 'black'
+        elif self.status == 'Interested':
+            color = "#0CB83C"
+        elif self.status == 'NotInterested':
+            color = "#dc3545"
+
+        return color
     
 class Conversation(models.Model):
     id = models.AutoField(primary_key=True)

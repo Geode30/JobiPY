@@ -5,7 +5,7 @@ from . import views
 from .api import (api_register, api_login, 
                api_setup, api_jobs, api_profile, 
                api_posted, api_post, api_message,
-                api_activities ,api_overall)
+                api_activities, api_overall, api_index)
 
 urlpatterns = [
     # ========================== Page Routes ==========================
@@ -22,6 +22,9 @@ urlpatterns = [
     path('posted', views.posted, name='posted'),
     
     # ========================== API Routes ==========================
+    
+    #index
+    path("api/index/search/jobs", api_index.api_index_search),
     
     #register
     path("api/register", api_register.api_register, name='api_register'),

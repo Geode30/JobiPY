@@ -1,11 +1,16 @@
 {% extends 'jobipy/layout.html' %}
 {% load static %}
 
+{% block title %}JobiPY{% endblock %}
+
 {% block styles %}
     <link href="{% static 'jobipy/css/index.css' %}" rel="stylesheet"> 
+    <link href="{% static 'jobipy/css/loading.css' %}" rel="stylesheet"> 
 {% endblock %}
 
 {% block menu_script %}
+    {% block overall_script %}
+    {% endblock %}
 {% endblock %}
 
 {% block script %}
@@ -32,8 +37,21 @@
             <input id="search-job" type="text" placeholder="Search for jobs">
             <input id="search-city" type="text" placeholder="City, State">
         </div>
-        <div id="search-button">
-            <button>Search for jobs</button>
+        <div id="filters-div">
+            <div id="industry-div">
+                <label for="industry">Industry:</label>
+                <select name="industry", id="industry">
+                    <option value="select" disabled selected>------ Select ------</option>
+                    <option value="IT">Information Technology</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Tourism">Hospitality and Tourism</option>
+                    <option value="Construction">Construction</option>
+                </select>
+            </div>
+            <div id="search-button">
+                <button>Search for jobs</button>
+            </div>
         </div>
     </div>
     <div id="headliner">
@@ -41,6 +59,15 @@
             Connecting Talent with Opportunity: Empowering Careers, Enabling Growth with JOBIPY
         </div>
         <button id="start-button">Start Here</button>
+    </div>
+    <div id="job-div" style="display: none;">
+        <div id="job-list-div"></div>
+        <div id="loading-div" style="width: fit-content; height: fit-content; margin-top: 10em; margin-left: 12em; display: none;">
+            <div class="spinner"></div>
+        </div>
+        <div id="job-desc-div">
+            <div id='desc-title' style="font-size: 3em; font-weight: bold; text-align: center; margin-top: 5em;"></div>
+        </div>
     </div>
 </div>
 

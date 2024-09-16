@@ -1,6 +1,8 @@
 {% extends 'jobipy/layout.html' %}
 {% load static %}
 
+{% block title %}Messages | JobiPY{% endblock %}
+
 {% block styles %}
     <link rel="stylesheet" href="{% static 'jobipy/css/message.css' %}">
 {% endblock %}
@@ -19,9 +21,6 @@
 <input type="hidden" id="group-name" value="{{ group_name }}">
 <div id="content">
     <div id="convo-container-div" style="display: none;">
-        <div id="contacts-div">
-            <p>Companies</p>
-        </div>
         <div id="convo-div">
             <p id="chat-mate-p"></p>
             <div id="messages-div"></div>

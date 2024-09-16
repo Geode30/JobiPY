@@ -27,13 +27,15 @@ def api_applied_jobs(request):
             'job_type': job.job_type,
             'date_posted': job.date_posted,
             'date_applied': date_str,
-            'status': application.current_status()
+            'status': application.current_status(),
+            'color': application.status_color()
             }
             
             jobs_applied.append(_)
     
     return  JsonResponse({
         'message': 'Succesfull',
+        'user_id': user.id,
         'jobs_applied': jobs_applied
     })
     

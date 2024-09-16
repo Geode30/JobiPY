@@ -9,13 +9,14 @@ def api_setup(request):
         industry = request.POST['industry']
         minimum_base_pay = request.POST['minimum_base_pay']
         per = request.POST['per']
+        currency = request.POST['currency']
         job_type = request.POST['job_type']
         
         contact_number = request.POST['contact_number']
         city = request.POST['city']
         resume = request.FILES['resume']
         
-        if not industry or not minimum_base_pay or not per or not job_type or not contact_number or not city or not resume:
+        if not industry or not minimum_base_pay or not currency or not per or not job_type or not contact_number or not city or not resume:
             return JsonResponse({
                 'message': 'Please fill all the required fields'
             })
@@ -36,7 +37,7 @@ def api_setup(request):
             user.resume_image = convert_pdf_to_jpg[0]['output_jpgfiles'][0]
             user.save()
             
-            preferences = Preferences(user=user, industry=industry, minimum_base_pay=minimum_base_pay, per=per, job_type=job_type)
+            preferences = Preferences(user=user, industry=industry, minimum_base_pay=minimum_base_pay, per=per, job_type=job_type, currency=currency)
             preferences.save()
             
             return JsonResponse({
@@ -48,11 +49,12 @@ def api_setup(request):
         minimum_base_pay = data['minimum_base_pay']
         per = data['per']
         job_type = data['job_type']
+        currency = data['currency']
         
         contact_number = data['contact_number']
         city = data['city']
         
-        if not industry or not minimum_base_pay or not per or not job_type or not contact_number or not city:
+        if not industry or not minimum_base_pay or not currency or not per or not job_type or not contact_number or not city:
             return JsonResponse({
                 'message': 'Please fill all the required fields'
             })
@@ -64,6 +66,7 @@ def api_setup(request):
             preferences.minimum_base_pay = minimum_base_pay
             preferences.per = per
             preferences.job_type = job_type
+            preferences.currency = currency
             
             user.contact_number = contact_number
             user.city = city
@@ -95,6 +98,7 @@ def api_get_preferences(request):
             'industry': preferences.industry,
             'minimum_base_pay':preferences.minimum_base_pay,
             'per':preferences.per,
+            'currency': preferences.currency,
             'job_type':preferences.job_type,
             'email': preferences.user.email,
             'contact_number': preferences.user.contact_number,

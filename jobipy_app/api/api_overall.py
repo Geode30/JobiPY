@@ -59,7 +59,7 @@ def api_notification(request):
     all_messages = []
     status_notif = []
 
-    for application in applications.all().order_by('date_applied'):
+    for application in applications.all().order_by('-updated'):
         _ = {
             'job_id': application.job.id,
             'company': application.job.company,

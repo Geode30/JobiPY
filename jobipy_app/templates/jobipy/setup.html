@@ -1,6 +1,8 @@
 {% extends 'jobipy/layout.html' %}
 {% load static %}
 
+{% block title %}Preferences | JobiPY{% endblock %}
+
 {% block styles %}
     <link href="{% static 'jobipy/css/setup.css' %}" rel="stylesheet"> 
 {% endblock %}
@@ -34,6 +36,12 @@
         <div id="minimum-pay-div">
             <div>Minimum base pay:</div>
             <div>
+            <select id="currency">
+                <option value="PHP">PHP</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+            </select>
             <input type="text" id="minimum-pay-input" required>
             <select id="per">
                 <option value="month">Per month</option>
@@ -82,7 +90,7 @@
         </div>
         <div id="resume-div">
             <div>Upload your resume:</div>
-            <input type="file" id="myFileInput" accept='application/pdf' style="display: none;">
+            <input type="file" id="myFileInput" accept='application/pdf' style="display: none;" required>
             <label for="myFileInput" class="custom-file-button">Choose File</label>
         </div>
     </div>

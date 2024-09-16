@@ -4,6 +4,8 @@ import json
 import random
 import string
 
+import datetime
+
 def api_posted(request):
     user = User.objects.get(id=request.session['user_id'])
     posted_jobs = Job_Post.objects.filter(poster=user).order_by('-date_posted')
@@ -42,11 +44,15 @@ def api_view_resume(request, id, job_id):
     user = User.objects.get(id=id)
     job = Job_Post.objects.get(id=job_id)
     
+    current_date = datetime.datetime.now()
+    formatted_date = current_date.strftime("%B %d, %Y, %I:%M:%S %p")
+    
     application_viewed = True
     
     application = Job_Application.objects.get(job=job, applicant=user)
     if application.status == 'NotViewed':
         application.status = 'Viewed'
+        application.updated = formatted_date
         application.save()
         application_viewed = False
         
@@ -121,9 +127,12 @@ def api_retrieve_conversation_id(request, id, job_id):
 def api_set_status(request, user_id, job_id, status):
     applicant = User.objects.get(id=user_id)
     job = Job_Post.objects.get(id=job_id)
+    current_date = datetime.datetime.now()
+    formatted_date = current_date.strftime("%B %d, %Y, %I:%M:%S %p")
     application = Job_Application.objects.get(applicant=applicant, job=job)
     application.status_viewed = False
     application.status = status
+    application.updated = formatted_date
     application.save()
     
     return JsonResponse({

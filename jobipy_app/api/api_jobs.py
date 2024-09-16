@@ -12,6 +12,24 @@ def api_jobs(request):
     job_list = []
     
     for job in jobs:
+        job_type = []
+        
+        pay_color = '#0CB83C'
+        if int(job.pay) < int(preferences.minimum_base_pay):
+            pay_color = '#dc3545'
+        
+        try:
+            pref_job_types = preferences.job_type.split(',')
+        except AttributeError:
+            pref_job_types = preferences.job_type
+            
+        for _job_type in pref_job_types:
+            if _job_type in job.job_type.split(','):
+                job_type.append(_job_type)
+        
+        job_type_set = set(job_type)
+        job_type_sep_comma = ','.join(job_type_set)
+        
         job_details = {
             'id': job.id,
             'poster': job.poster.name,
@@ -19,10 +37,13 @@ def api_jobs(request):
             'company': job.company,
             'city': job.city,
             'description': job.job_description,
+            'currency': job.currency,
             'pay': job.pay,
             'per': job.per,
-            'job_type': job.job_type,
-            'date_posted': job.date_posted
+            'job_type': job_type_sep_comma if len(job_type_set) > 0 else job.job_type,
+            'date_posted': job.date_posted,
+            'pay_color': pay_color,
+            'job_type_color': '#0CB83C' if len(job_type_set) > 0 else '#dc3545'
         }
 
         application = Job_Application.objects.filter(job=job, applicant=user).distinct().first()
