@@ -1,0 +1,159 @@
+#content {
+  width: 100vw;
+  height: fit-content;
+  z-index: 1;
+}
+#content #post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#content #post-form #title {
+  color: #0CB83C;
+  font-family: "Timmana", sans-serif;
+  font-size: 3em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: 0.5em;
+  text-align: center;
+}
+#content #post-form #industry-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+}
+#content #post-form #industry-div select {
+  width: fit-content;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #757575;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+#content #post-form #industry-div select option {
+  padding: 10px;
+}
+#content #post-form #industry-div select {
+  cursor: pointer;
+}
+#content #post-form #company-name-div,
+#content #post-form #job-title-div,
+#content #post-form #city-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+  color: #343a40;
+}
+#content #post-form #company-name-div input,
+#content #post-form #job-title-div input,
+#content #post-form #city-div input {
+  font-family: "Varela Round", sans-serif;
+  width: 22em;
+  height: 0.5em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+}
+#content #post-form #description-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+  color: #343a40;
+}
+#content #post-form #description-div textarea {
+  font-family: "Varela Round", sans-serif;
+  width: clamp(22em, 50vw, 30em);
+  height: 20em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+  resize: none;
+  white-space: pre-wrap;
+}
+#content #post-form #minimum-pay-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+}
+#content #post-form #minimum-pay-div > input {
+  font-family: "Varela Round", sans-serif;
+  width: 22em;
+  height: 0.5em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+}
+#content #post-form #minimum-pay-div div input {
+  font-family: "Varela Round", sans-serif;
+  width: 10em;
+  height: 0.5em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+}
+#content #post-form #minimum-pay-div select {
+  width: fit-content;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #757575;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+#content #post-form #minimum-pay-div select option {
+  padding: 10px;
+}
+#content #post-form #minimum-pay-div select:hover {
+  cursor: pointer;
+}
+#content #post-form #job-type-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+}
+#content #post-form #job-type-div > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2em;
+  height: auto;
+  width: auto;
+  margin-top: 0.5em;
+}
+#content #post-form #job-type-div div:hover {
+  cursor: pointer;
+}
+#content #post-form #job-type-div div:hover label {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+#content #post-form #job-type-div div:hover label:hover,
+#content #post-form #job-type-div div:hover input:hover {
+  cursor: pointer;
+}
+#content #post-form input[type=submit] {
+  font-family: "Varela Round", sans-serif;
+  width: fit-content;
+  height: 3em;
+  border-radius: 10px;
+  background-color: #0CB83C;
+  color: white;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+#content #post-form input[type=submit]:hover {
+  background-color: #004D40;
+  transition: all 0.3s ease-in-out;
+}
+
+/*# sourceMappingURL=post.css.map */

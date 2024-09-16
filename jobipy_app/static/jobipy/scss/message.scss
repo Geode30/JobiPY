@@ -1,0 +1,95 @@
+$timmana: 'Timmana', sans-serif;
+$valera: 'Varela Round', sans-serif;
+$green: #0CB83C;
+$dark-green: #004D40;
+$blue: #0092E3;
+$dark-blue: #007ACC;
+$gray: #757575;
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: $valera;
+    z-index: 1;
+
+    #convo-container-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 45em;
+        height: 32em;
+        border: 1px solid $gray;
+        border-radius: 10px;
+        margin-top: 1.5em;
+        box-shadow: 0 6px 8px 1px rgba(0, 0, 0, 0.3);
+
+        #convo-div {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                margin-top: 0.75em;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+
+            #messages-div {
+                width: 80%;
+                height: 70%;
+                border: 1px solid $gray;
+                border-radius: 10px;
+                margin-bottom: 1em;
+                padding: 1em;
+                font-family: $valera;
+                background-color: #f7f4f4;
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5em;
+                overflow: auto;
+                scrollbar-width: thin;
+
+                .message-div {
+                    width: fit-content;
+                    max-width: 15em;
+                    height: auto;
+                    word-wrap: break-word;
+                    background-color: $green;
+                    color: white;
+                    border: 1px solid $gray;
+                    border-radius: 10px;
+                    padding: 10px;
+                    white-space: pre-wrap;
+                }
+            }
+
+            #send-div {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 1em;
+                width: 100%;
+                justify-content: center;
+
+                textarea {
+                    width: 65%;
+                    height: 2.5em;
+                    border-radius: 10px;
+                    padding-left: 16px;
+                    padding-top: 6px;
+                    resize: none;
+                    scrollbar-width: thin;
+                    scrollbar-color: rgb(194, 194, 194, 1) #f1f1f1;
+                }
+
+                button {
+                    margin-left: 1em;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,355 @@
+$timmana: 'Timmana', sans-serif;
+$valera: 'Varela Round', sans-serif;
+$green: #0CB83C;
+$dark-green: #004D40;
+$blue: #0092E3;
+$gray: #757575;
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    background-color: #F0F0F0;
+}
+
+#header {
+    height: 6em;
+    width: 100vw;
+    background-color: $green;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#app-name {
+    font-family: $timmana;
+    font-size: 2.5em;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: fit-content;
+    height: 1.2em;
+    margin-left: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    div {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        margin-top: 0.3em;
+        margin-left: 0.2em;
+        margin-right: 0.2em;
+    }
+}
+
+#app-name:hover {
+    cursor: pointer;
+}
+
+@keyframes appear {
+    0% {
+        z-index: 2;
+        transform: translateX(30em);
+    }
+
+    100% {
+        z-index: 2;
+        transform: translateX(0em);
+    }
+}
+
+@keyframes disappear {
+    0% {
+        transform: translateX(0em);
+    }
+
+    100% {
+        transform: translateX(30em);
+    }
+}
+
+#close-all-divs {
+    background: transparent;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+}
+
+#menu-div {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 28.1em;
+    height: 100vh;
+    border: 1px solid $gray;
+    background-color: white;
+    font-family: $valera;
+    right: 0;
+    top: 0;
+    transform: translateX(30em);
+    z-index: 2;
+
+    img {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 0;
+        margin-top: 0.5em;
+        margin-right: 0.5em;
+    }
+
+    img:hover {
+        width: 35px;
+        height: 35px;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    a {
+        font-size: 1.5em;
+        padding-left: 1.5em;
+        text-decoration: none;
+        color: black;
+    }
+
+    #name-div {
+        margin-top: 3em;
+        font-weight: bold;
+        font-size: 1.5em;
+        padding-left: 1.5em;
+    }
+
+    #profile-a {
+        margin-top: 1em;
+    }
+
+
+    #logout-a {
+        margin-top: auto;
+        margin-bottom: 2em;
+    }
+
+    #logout-a:hover,
+    #jobs-a:hover,
+    #profile-a:hover,
+    #switch-mode-a:hover,
+    #activities-a:hover {
+        cursor: pointer;
+        background-color: $green;
+        color: white;
+    }
+}
+
+#message-div-header,
+#notification-div-header {
+    position: absolute;
+    width: 28.1em;
+    height: 100vh;
+    border: 1px solid $gray;
+    background-color: rgb(243, 243, 243);
+    font-family: $valera;
+    right: 0;
+    top: 0;
+    transform: translateX(30em);
+    z-index: 2;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    >div {
+        margin-top: 1em;
+    }
+
+    img {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 0;
+        margin-top: 0.5em;
+        margin-right: 0.5em;
+    }
+
+    img:hover {
+        width: 35px;
+        height: 35px;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    #message-title,
+    #notif-title {
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    #messages-div-header,
+    #notifications-div-header {
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        flex-direction: column;
+        row-gap: 0.5em;
+        margin-top: 1em;
+
+        .status-div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: fit-content;
+            justify-content: center;
+            background-color: white;
+            color: black;
+            border: 1px solid $gray;
+            border-radius: 5px;
+            padding-left: 1em;
+            padding-top: 1em;
+            padding-right: 1em;
+
+            span {
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+
+            p {
+                width: 100%;
+                white-space: pre-wrap;
+                text-wrap: wrap;
+            }
+
+            .time-p {
+                font-weight: bold;
+                margin-left: 22em;
+            }
+        }
+
+        .msg-div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 8em;
+            justify-content: center;
+            background-color: white;
+            color: black;
+            border: 1px solid $gray;
+            border-radius: 5px;
+            padding-left: 1em;
+            padding-top: 1em;
+
+            span {
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+
+            p {
+                width: 100%;
+                height: 4em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .time-p {
+                font-weight: bold;
+                margin-left: 22em;
+            }
+        }
+
+        .msg-div:hover,
+        .status-div:hover {
+            background-color: $green;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out
+        }
+    }
+}
+
+#menu-div-big {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: 100%;
+    align-items: center;
+    font-family: $valera;
+    font-weight: 500;
+    column-gap: 2em;
+    margin-left: 2em;
+    z-index: 2;
+}
+
+#nav-div {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 3em;
+    column-gap: 1.25em;
+    z-index: 1;
+    font-family: $valera;
+
+    #menu-icon-div {
+        display: none;
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    #menu-icon-div:hover {
+        cursor: pointer;
+
+        img {
+            width: 35px;
+            height: 35px;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    #message-icon-div,
+    #notification-icon-div {
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    #message-icon-div:hover,
+    #notification-icon-div:hover {
+        cursor: pointer;
+
+        img {
+            width: 35px;
+            height: 35px;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    #app-name {
+        margin-left: 1em;
+    }
+}
+
+@media (max-width: 1000px) {
+    #nav-div {
+        margin-right: 1em;
+
+        #menu-icon-div {
+            display: block;
+        }
+    }
+
+    #menu-div-big {
+        display: none;
+    }
+}

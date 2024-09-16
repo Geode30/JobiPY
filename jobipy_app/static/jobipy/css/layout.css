@@ -1,0 +1,351 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  background-color: #F0F0F0;
+}
+
+#header {
+  height: 6em;
+  width: 100vw;
+  background-color: #0CB83C;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#app-name {
+  font-family: "Timmana", sans-serif;
+  font-size: 2.5em;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: fit-content;
+  height: 1.2em;
+  margin-left: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+#app-name div {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-top: 0.3em;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+#app-name:hover {
+  cursor: pointer;
+}
+
+@keyframes appear {
+  0% {
+    z-index: 2;
+    transform: translateX(30em);
+  }
+  100% {
+    z-index: 2;
+    transform: translateX(0em);
+  }
+}
+@keyframes disappear {
+  0% {
+    transform: translateX(0em);
+  }
+  100% {
+    transform: translateX(30em);
+  }
+}
+#close-all-divs {
+  background: transparent;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+}
+
+#menu-div {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 28.1em;
+  height: 100vh;
+  border: 1px solid #757575;
+  background-color: white;
+  font-family: "Varela Round", sans-serif;
+  right: 0;
+  top: 0;
+  transform: translateX(30em);
+  z-index: 2;
+}
+#menu-div img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 0;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+#menu-div img:hover {
+  width: 35px;
+  height: 35px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+#menu-div a {
+  font-size: 1.5em;
+  padding-left: 1.5em;
+  text-decoration: none;
+  color: black;
+}
+#menu-div #name-div {
+  margin-top: 3em;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding-left: 1.5em;
+}
+#menu-div #profile-a {
+  margin-top: 1em;
+}
+#menu-div #logout-a {
+  margin-top: auto;
+  margin-bottom: 2em;
+}
+#menu-div #logout-a:hover,
+#menu-div #jobs-a:hover,
+#menu-div #profile-a:hover,
+#menu-div #switch-mode-a:hover,
+#menu-div #activities-a:hover {
+  cursor: pointer;
+  background-color: #0CB83C;
+  color: white;
+}
+
+#message-div-header,
+#notification-div-header {
+  position: absolute;
+  width: 28.1em;
+  height: 100vh;
+  border: 1px solid #757575;
+  background-color: rgb(243, 243, 243);
+  font-family: "Varela Round", sans-serif;
+  right: 0;
+  top: 0;
+  transform: translateX(30em);
+  z-index: 2;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+#message-div-header > div,
+#notification-div-header > div {
+  margin-top: 1em;
+}
+#message-div-header img,
+#notification-div-header img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 0;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+#message-div-header img:hover,
+#notification-div-header img:hover {
+  width: 35px;
+  height: 35px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+#message-div-header #message-title,
+#message-div-header #notif-title,
+#notification-div-header #message-title,
+#notification-div-header #notif-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+#message-div-header #messages-div-header,
+#message-div-header #notifications-div-header,
+#notification-div-header #messages-div-header,
+#notification-div-header #notifications-div-header {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  flex-direction: column;
+  row-gap: 0.5em;
+  margin-top: 1em;
+}
+#message-div-header #messages-div-header .status-div,
+#message-div-header #notifications-div-header .status-div,
+#notification-div-header #messages-div-header .status-div,
+#notification-div-header #notifications-div-header .status-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  border: 1px solid #757575;
+  border-radius: 5px;
+  padding-left: 1em;
+  padding-top: 1em;
+  padding-right: 1em;
+}
+#message-div-header #messages-div-header .status-div span,
+#message-div-header #notifications-div-header .status-div span,
+#notification-div-header #messages-div-header .status-div span,
+#notification-div-header #notifications-div-header .status-div span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#message-div-header #messages-div-header .status-div p,
+#message-div-header #notifications-div-header .status-div p,
+#notification-div-header #messages-div-header .status-div p,
+#notification-div-header #notifications-div-header .status-div p {
+  width: 100%;
+  white-space: pre-wrap;
+  text-wrap: wrap;
+}
+#message-div-header #messages-div-header .status-div .time-p,
+#message-div-header #notifications-div-header .status-div .time-p,
+#notification-div-header #messages-div-header .status-div .time-p,
+#notification-div-header #notifications-div-header .status-div .time-p {
+  font-weight: bold;
+  margin-left: 22em;
+}
+#message-div-header #messages-div-header .msg-div,
+#message-div-header #notifications-div-header .msg-div,
+#notification-div-header #messages-div-header .msg-div,
+#notification-div-header #notifications-div-header .msg-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 8em;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  border: 1px solid #757575;
+  border-radius: 5px;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+#message-div-header #messages-div-header .msg-div span,
+#message-div-header #notifications-div-header .msg-div span,
+#notification-div-header #messages-div-header .msg-div span,
+#notification-div-header #notifications-div-header .msg-div span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#message-div-header #messages-div-header .msg-div p,
+#message-div-header #notifications-div-header .msg-div p,
+#notification-div-header #messages-div-header .msg-div p,
+#notification-div-header #notifications-div-header .msg-div p {
+  width: 100%;
+  height: 4em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#message-div-header #messages-div-header .msg-div .time-p,
+#message-div-header #notifications-div-header .msg-div .time-p,
+#notification-div-header #messages-div-header .msg-div .time-p,
+#notification-div-header #notifications-div-header .msg-div .time-p {
+  font-weight: bold;
+  margin-left: 22em;
+}
+#message-div-header #messages-div-header .msg-div:hover,
+#message-div-header #messages-div-header .status-div:hover,
+#message-div-header #notifications-div-header .msg-div:hover,
+#message-div-header #notifications-div-header .status-div:hover,
+#notification-div-header #messages-div-header .msg-div:hover,
+#notification-div-header #messages-div-header .status-div:hover,
+#notification-div-header #notifications-div-header .msg-div:hover,
+#notification-div-header #notifications-div-header .status-div:hover {
+  background-color: #0CB83C;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu-div-big {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: 100%;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 500;
+  column-gap: 2em;
+  margin-left: 2em;
+  z-index: 2;
+}
+
+#nav-div {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: 3em;
+  column-gap: 1.25em;
+  z-index: 1;
+  font-family: "Varela Round", sans-serif;
+}
+#nav-div #menu-icon-div {
+  display: none;
+  width: 30px;
+  height: 30px;
+}
+#nav-div #menu-icon-div img {
+  width: 30px;
+  height: 30px;
+}
+#nav-div #menu-icon-div:hover {
+  cursor: pointer;
+}
+#nav-div #menu-icon-div:hover img {
+  width: 35px;
+  height: 35px;
+  transition: all 0.2s ease-in-out;
+}
+#nav-div #message-icon-div,
+#nav-div #notification-icon-div {
+  width: 30px;
+  height: 30px;
+}
+#nav-div #message-icon-div img,
+#nav-div #notification-icon-div img {
+  width: 30px;
+  height: 30px;
+}
+#nav-div #message-icon-div:hover,
+#nav-div #notification-icon-div:hover {
+  cursor: pointer;
+}
+#nav-div #message-icon-div:hover img,
+#nav-div #notification-icon-div:hover img {
+  width: 35px;
+  height: 35px;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 600px) {
+  #app-name {
+    margin-left: 1em;
+  }
+}
+@media (max-width: 1000px) {
+  #nav-div {
+    margin-right: 1em;
+  }
+  #nav-div #menu-icon-div {
+    display: block;
+  }
+  #menu-div-big {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=layout.css.map */

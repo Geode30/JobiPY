@@ -1,0 +1,164 @@
+#content {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+#content #preferences-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1em;
+}
+#content #preferences-div #preferences-title {
+  color: #0CB83C;
+  font-family: "Timmana", sans-serif;
+  font-size: 3em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: 0.5em;
+  text-align: center;
+}
+#content #preferences-div #industry-div,
+#content #preferences-div #minimum-pay-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+}
+#content #preferences-div #industry-div > input,
+#content #preferences-div #minimum-pay-div > input {
+  font-family: "Varela Round", sans-serif;
+  width: 22em;
+  height: 0.5em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+}
+#content #preferences-div #industry-div div input,
+#content #preferences-div #minimum-pay-div div input {
+  font-family: "Varela Round", sans-serif;
+  width: 10em;
+  height: 0.5em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+}
+#content #preferences-div #industry-div select,
+#content #preferences-div #minimum-pay-div select {
+  width: fit-content;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #757575;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+#content #preferences-div #industry-div select option,
+#content #preferences-div #minimum-pay-div select option {
+  padding: 10px;
+}
+#content #preferences-div #industry-div select:hover,
+#content #preferences-div #minimum-pay-div select:hover {
+  cursor: pointer;
+}
+#content #preferences-div #job-type-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+}
+#content #preferences-div #job-type-div > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2em;
+  height: auto;
+  width: auto;
+  margin-top: 0.5em;
+}
+#content #preferences-div #job-type-div div:hover {
+  cursor: pointer;
+}
+#content #preferences-div #job-type-div div:hover label {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+#content #preferences-div #job-type-div div:hover label:hover,
+#content #preferences-div #job-type-div div:hover input:hover {
+  cursor: pointer;
+}
+#content #about-self-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1em;
+  margin-top: 2em;
+}
+#content #about-self-div #about-title {
+  color: #0CB83C;
+  font-family: "Timmana", sans-serif;
+  font-size: 3em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: 0.5em;
+  text-align: center;
+}
+#content #about-self-div #name-div,
+#content #about-self-div #email-div,
+#content #about-self-div #contact-div,
+#content #about-self-div #city-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+}
+#content #about-self-div #name-div input,
+#content #about-self-div #email-div input,
+#content #about-self-div #contact-div input,
+#content #about-self-div #city-div input {
+  font-family: "Varela Round", sans-serif;
+  width: 22em;
+  height: 0.5em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+}
+#content #about-self-div #resume-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+  /* Style the custom button to trigger file selection */
+  /* Optional: Add hover effect */
+}
+#content #about-self-div #resume-div .custom-file-button {
+  background-color: #0074d9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+#content #about-self-div #resume-div .custom-file-button:hover {
+  background-color: #0056b3;
+}
+#content #save-button {
+  font-family: "Varela Round", sans-serif;
+  width: fit-content;
+  height: 3em;
+  border-radius: 10px;
+  background-color: #0CB83C;
+  color: white;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+#content #save-button:hover {
+  background-color: #004D40;
+  transition: all 0.3s ease-in-out;
+}
+
+/*# sourceMappingURL=setup.css.map */

@@ -1,0 +1,92 @@
+#content {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  font-family: "Varela Round", sans-serif;
+  padding-top: 2em;
+  justify-content: center;
+  margin-bottom: 5em;
+  z-index: 1;
+}
+#content #info-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 4em;
+  row-gap: 1em;
+  /* Style the custom button to trigger file selection */
+  /* Optional: Add hover effect */
+}
+#content #info-div #personal-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 28em;
+  height: fit-content;
+  border: 1px solid #757575;
+  border-radius: 10px;
+  overflow: auto;
+  background-color: white;
+  box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+  padding: 2em;
+  text-align: center;
+}
+#content #info-div #personal-div #name-p {
+  font-size: 3em;
+  font-weight: bold;
+}
+#content #info-div #personal-div #city-p {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#content #info-div #personal-div #contacts-div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+#content #info-div #personal-div #contacts-div #contacts-p {
+  font-size: 1.5em;
+  margin-left: 20%;
+  font-weight: bold;
+}
+#content #info-div .custom-file-button {
+  background-color: #0074d9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+#content #info-div .custom-file-button:hover {
+  background-color: #0056b3;
+}
+#content img {
+  margin-left: auto;
+  margin-right: 4em;
+  width: 40em;
+  border: 1px solid #757575;
+  box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1200px) {
+  #content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #content #info-div {
+    margin-left: 0em;
+  }
+  #content img {
+    margin-top: 2em;
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+}
+@media (max-width: 650px) {
+  #content img {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=profile.css.map */

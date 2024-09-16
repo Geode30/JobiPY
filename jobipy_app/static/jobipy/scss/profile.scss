@@ -1,0 +1,111 @@
+$timmana: 'Timmana', sans-serif;
+$valera: 'Varela Round', sans-serif;
+$green: #0CB83C;
+$dark-green: #004D40;
+$blue: #0092E3;
+$gray: #757575;
+
+#content {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    font-family: $valera;
+    padding-top: 2em;
+    justify-content: center;
+    margin-bottom: 5em;
+    z-index: 1;
+
+    #info-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 4em;
+        row-gap: 1em;
+
+        #personal-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 28em;
+            height: fit-content;
+            border: 1px solid $gray;
+            border-radius: 10px;
+            overflow: auto;
+            background-color: white;
+            box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+            padding: 2em;
+            text-align: center;
+
+            #name-p {
+                font-size: 3em;
+                font-weight: bold;
+            }
+
+            #city-p {
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+
+            #contacts-div {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+
+                #contacts-p {
+                    font-size: 1.5em;
+                    margin-left: 20%;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        /* Style the custom button to trigger file selection */
+        .custom-file-button {
+            background-color: #0074d9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Optional: Add hover effect */
+        .custom-file-button:hover {
+            background-color: #0056b3;
+        }
+    }
+
+    img {
+        margin-left: auto;
+        margin-right: 4em;
+        width: 40em;
+        border: 1px solid $gray;
+        box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (max-width: 1200px) {
+    #content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        #info-div {
+            margin-left: 0em;
+        }
+
+        img {
+            margin-top: 2em;
+            margin-left: 0em;
+            margin-right: 0em;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    #content {
+        img {
+            display: none;
+        }
+    }
+}

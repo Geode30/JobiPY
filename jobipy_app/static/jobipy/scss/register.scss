@@ -1,0 +1,126 @@
+$timmana: 'Timmana', sans-serif;
+$valera: 'Varela Round', sans-serif;
+$green: #0CB83C;
+$dark-green: #004D40;
+$blue: #0092E3;
+$gray: #757575;
+
+#sign-in-a {
+    margin-left: auto;
+    text-decoration: none;
+    color: black;
+
+    #sign-in {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        column-gap: 0.5em;
+        height: 40px;
+        width: 100px;
+        border: 1px solid white;
+        border-radius: 10px;
+        background-color: white;
+        margin-right: 1.5em;
+        box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+
+        img {
+            height: 30px;
+            width: 30px;
+        }
+
+        div {
+            font-family: $valera;
+        }
+    }
+
+    #sign-in:hover {
+        height: 43px;
+        width: 103px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+
+#content {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    padding: 2em;
+
+    #sign-up-title {
+        color: $green;
+        font-family: $timmana;
+        font-size: 3em;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    #sign-up-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.5em;
+
+        div {
+            font-weight: bold;
+        }
+
+        #first-name-div,
+        #last-name-div,
+        #email-div,
+        #password-div,
+        #confirm-pass-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: $valera;
+
+            input {
+                font-family: $valera;
+                width: 22em;
+                height: 0.5em;
+                padding: 1em;
+                border: 1px solid $gray;
+                border-radius: 10px;
+                text-align: center;
+            }
+        }
+
+        >input {
+            font-family: $valera;
+            width: fit-content;
+            height: 3em;
+            border-radius: 10px;
+            background-color: $green;
+            color: white;
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-top: 1em;
+        }
+
+        >input:hover {
+            background-color: $dark-green;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    #content {
+        border: 2px solid $gray;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 20px;
+        background-color: white;
+        box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    #sign-in-a {
+        margin-right: 1em;
+    }
+}

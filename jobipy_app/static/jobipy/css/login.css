@@ -1,0 +1,102 @@
+#sign-up-a {
+  margin-left: auto;
+  text-decoration: none;
+  color: black;
+}
+#sign-up-a #sign-up {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5em;
+  height: 40px;
+  width: 110px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: 1em;
+  box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+}
+#sign-up-a #sign-up img {
+  height: 30px;
+  width: 30px;
+}
+#sign-up-a #sign-up div {
+  font-family: "Varela Round", sans-serif;
+}
+#sign-up-a #sign-up:hover {
+  height: 43px;
+  width: 113px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#content {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5em;
+  padding: 2em;
+}
+#content #sign-in-title {
+  color: #0CB83C;
+  font-family: "Timmana", sans-serif;
+  font-size: 3em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+#content #sign-in-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5em;
+}
+#content #sign-in-form #email-div,
+#content #sign-in-form #password-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+}
+#content #sign-in-form #email-div input,
+#content #sign-in-form #password-div input {
+  font-family: "Varela Round", sans-serif;
+  width: 22em;
+  height: 0.5em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+}
+#content #sign-in-form #login-input {
+  font-family: "Varela Round", sans-serif;
+  width: fit-content;
+  height: 3em;
+  border-radius: 10px;
+  background-color: #0CB83C;
+  color: white;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 1em;
+}
+#content #sign-in-form #login-input:hover {
+  background-color: #004D40;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 600px) {
+  #content {
+    border: 2px solid #757575;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+  }
+  #sign-up-a {
+    margin-right: 1em;
+  }
+}
+
+/*# sourceMappingURL=login.css.map */

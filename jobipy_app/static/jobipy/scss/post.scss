@@ -1,0 +1,186 @@
+$timmana: 'Timmana', sans-serif;
+$valera: 'Varela Round', sans-serif;
+$green: #0CB83C;
+$dark-green: #004D40;
+$blue: #0092E3;
+$dark-blue: #007ACC;
+$gray: #757575;
+
+#content {
+    width: 100vw;
+    height: fit-content;
+    z-index: 1;
+
+    #post-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #title {
+            color: $green;
+            font-family: $timmana;
+            font-size: 3em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin-top: 0.5em;
+            text-align: center;
+        }
+
+        #industry-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: $valera;
+
+            select {
+                width: fit-content;
+                text-align: center;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid $gray;
+                border-radius: 5px;
+                background-color: #f8f9fa;
+                color: #343a40;
+
+                option {
+                    padding: 10px;
+                }
+            }
+
+            select {
+                cursor: pointer;
+            }
+        }
+
+        #company-name-div,
+        #job-title-div,
+        #city-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: $valera;
+            color: #343a40;
+
+            input {
+                font-family: $valera;
+                width: 22em;
+                height: 0.5em;
+                padding: 1em;
+                border: 1px solid $gray;
+                border-radius: 10px;
+            }
+        }
+
+        #description-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: $valera;
+            color: #343a40;
+
+            textarea {
+                font-family: $valera;
+                width: clamp(22em, 50vw, 30em);
+                height: 20em;
+                padding: 1em;
+                border: 1px solid $gray;
+                border-radius: 10px;
+                resize: none;
+                white-space: pre-wrap;
+            }
+        }
+
+        #minimum-pay-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: $valera;
+
+            >input {
+                font-family: $valera;
+                width: 22em;
+                height: 0.5em;
+                padding: 1em;
+                border: 1px solid $gray;
+                border-radius: 10px;
+            }
+
+            div input {
+                font-family: $valera;
+                width: 10em;
+                height: 0.5em;
+                padding: 1em;
+                border: 1px solid $gray;
+                border-radius: 10px;
+            }
+
+            select {
+                width: fit-content;
+                text-align: center;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid $gray;
+                border-radius: 5px;
+                background-color: #f8f9fa;
+                color: #343a40;
+
+                option {
+                    padding: 10px;
+                }
+            }
+
+            select:hover {
+                cursor: pointer;
+            }
+        }
+
+        #job-type-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: $valera;
+
+            >div:nth-child(2) {
+                display: flex;
+                flex-direction: row;
+                column-gap: 2em;
+                height: auto;
+                width: auto;
+                margin-top: .5em;
+            }
+
+            div:hover {
+                cursor: pointer;
+
+                label {
+                    user-select: none;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                }
+
+                label:hover,
+                input:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        input[type="submit"] {
+            font-family: $valera;
+            width: fit-content;
+            height: 3em;
+            border-radius: 10px;
+            background-color: $green;
+            color: white;
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-top: 1em;
+            margin-bottom: 2em;
+        }
+
+        input[type="submit"]:hover {
+            background-color: $dark-green;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}

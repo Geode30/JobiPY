@@ -1,0 +1,112 @@
+#sign-in-a {
+  margin-left: auto;
+  text-decoration: none;
+  color: black;
+}
+#sign-in-a #sign-in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5em;
+  height: 40px;
+  width: 100px;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: white;
+  margin-right: 1.5em;
+  box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+}
+#sign-in-a #sign-in img {
+  height: 30px;
+  width: 30px;
+}
+#sign-in-a #sign-in div {
+  font-family: "Varela Round", sans-serif;
+}
+#sign-in-a #sign-in:hover {
+  height: 43px;
+  width: 103px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#content {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  padding: 2em;
+}
+#content #sign-up-title {
+  color: #0CB83C;
+  font-family: "Timmana", sans-serif;
+  font-size: 3em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+#content #sign-up-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5em;
+}
+#content #sign-up-form div {
+  font-weight: bold;
+}
+#content #sign-up-form #first-name-div,
+#content #sign-up-form #last-name-div,
+#content #sign-up-form #email-div,
+#content #sign-up-form #password-div,
+#content #sign-up-form #confirm-pass-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+}
+#content #sign-up-form #first-name-div input,
+#content #sign-up-form #last-name-div input,
+#content #sign-up-form #email-div input,
+#content #sign-up-form #password-div input,
+#content #sign-up-form #confirm-pass-div input {
+  font-family: "Varela Round", sans-serif;
+  width: 22em;
+  height: 0.5em;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 10px;
+  text-align: center;
+}
+#content #sign-up-form > input {
+  font-family: "Varela Round", sans-serif;
+  width: fit-content;
+  height: 3em;
+  border-radius: 10px;
+  background-color: #0CB83C;
+  color: white;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 1em;
+}
+#content #sign-up-form > input:hover {
+  background-color: #004D40;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 600px) {
+  #content {
+    border: 2px solid #757575;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 10px 12px 1px rgba(0, 0, 0, 0.3);
+  }
+  #sign-in-a {
+    margin-right: 1em;
+  }
+}
+
+/*# sourceMappingURL=register.css.map */
