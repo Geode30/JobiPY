@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 import os
 import dj_database_url
 
@@ -91,11 +90,6 @@ TEMPLATES = [
 DATABASES = { # type: ignore
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DATABASE_NAME'),
-        'USER' : config('DATABASE_USER'),
-        'PASSWORD' : config('DATABASE_PASSWORD'), 
-        'HOST' : config('DATABASE_HOST'),
-        'PORT' : config('DATABASE_PORT')
     }
 }
 
