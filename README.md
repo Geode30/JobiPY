@@ -1,4 +1,4 @@
-# Job Portal App
+# JobiPY
 
 ## Project Overview
 
