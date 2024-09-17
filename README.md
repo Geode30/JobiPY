@@ -38,15 +38,15 @@ The complexity of this project surpasses that of the previous commerce and netwo
   - **`templates/jobipy/`**: HTML templates for rendering web pages.
      - **`layout.html`**: HTML file for the layout. Contains header and title.
      - **`index.html`**: HTML file for the homepage, this is the page that is shown if a user is not logged in.
-     - **`register.html`**: HTML file for sign up page.
-     - **`login.html`**: HTML file for sign in page.
-     - **`setup.html`**: HTML file for the setting up job preferences.
-     - **`jobs.html`**: HTML file for available jobs to apply.
-     - **`profile.html`**: HTML file for profile information.
-     - **`activities.html`**: HTML file for applied jobs.
-     - **`posted.html`**: HTML file for jobs that is posted as employer.
-     - **`post.html`**: HTML file for creating a job post.
-     - **`message.html`**: HTML file for chat messages.
+     - **`register.html`**: HTML file for sign up page. Contains a sign up form.
+     - **`login.html`**: HTML file for sign in page. Contains a log in form.
+     - **`setup.html`**: HTML file for the setting up job preferences. Contains a preference form.
+     - **`jobs.html`**: HTML file for available jobs to apply. Contains different containers for job postings and descriptions.
+     - **`profile.html`**: HTML file for profile information. Contains container for profile information and an image for resume.
+     - **`activities.html`**: HTML file for applied jobs. Contains different containers for job postings that the user applied to and descriptions.
+     - **`posted.html`**: HTML file for jobs that is posted as employer. Contains different containers for job postings that the user posted as employer and descriptions.
+     - **`post.html`**: HTML file for creating a job post. Contains a job post form.
+     - **`message.html`**: HTML file for chat messages. Contains a container for messages.
   - **`static/jobipy/`**: Contains static files such as CSS, JavaScript, and images used throughout the project.
      - **`css/`**: Contains CSS files for styling html pages.
         - **`layout.css`**: Styles for layout.html.
@@ -60,22 +60,23 @@ The complexity of this project surpasses that of the previous commerce and netwo
         - **`posted.css`**: Styles for layout.html.
         - **`post.css`**: Styles for layout.html.
         - **`message.css`**: Styles for layout.html.
-       **`images/`**: Contains images used as icons on buttons.
-       **`scripts/`**: Contains Javascript files for making the html pages interactive.
-        - **`index.js`**: Styles for layout.html.
-        - **`register.js`**: Styles for register.html.
-        - **`login.js`**: Styles for login.html.
-        - **`setup.js`**: Styles for setup.html.
-        - **`jobs.js`**: Styles for layout.html.
-        - **`profile.js`**: Styles for layout.html.
-        - **`activities.js`**: Styles for layout.html.
-        - **`posted.js`**: Styles for layout.html.
-        - **`post.js`**: Styles for layout.html.
-        - **`message.js`**: Styles for layout.html.
-        - **`overall.js`**: Styles for index.html.
-        - **`menu.js`**: Styles for index.html.
-        - **`menuNoTitle.js`**: Styles for index.html.
-        - **`toIndex.js`**: Styles for index.html.
+     - **`images/`**: Contains images used as icons on buttons.
+     - **`scripts/`**: Contains Javascript files for making the html pages interactive.
+        - **`index.js`**: Contains functions needed for index.html. Getting job postings by searching or filtering industry.
+        - **`register.js`**: Contains functions needed for register.html. Creating new account.
+        - **`login.js`**: Contains functions needed for login.html. Logging in the user.
+        - **`setup.js`**: Contains functions needed for setup.html. Checking if the user has preference or not, if not, then create one.
+        - **`jobs.js`**: Contains functions needed for jobs.html. Getting job postings based on user's preferences, Apply to any job post.
+        - **`profile.js`**: Contains functions needed for profile.html. See the user's details as well as their resume, they can modify their preferences and replace resume here.
+        - **`activities.js`**: Contains functions needed for activities.html. See the job posts that the user had applied to.
+        - **`posted.js`**: Contains functions needed for posted.html. See the posted jobs as employer, they can also see the users who applied to a job post and they can send them a message.
+        - **`post.js`**: Contains functions needed for post.html. Let the user create a new job post.
+        - **`message.js`**: Contains functions needed for message.html. Let the user send a message to chat about the application.
+        - **`overall.js`**: Contains functions needed for notifications like updated messages and application status changes. 
+        - **`menu.js`**: Used to style the menus in header.
+        - **`menuNoTitle.js`**: Used to style the menus but this script is used by pages that are not in menus like message and post.
+        - **`menuAnimations.js`**: Used to trigger menu animations.
+        - **`toIndex.js`**: Used to have the app name a function to either send the user to index if they are not logged in ro to jobs if they are logged in.
   - **`api/`**: Contains the logic for API endpoints.
      - **`api_index.py`**: Styles for layout.html.
      - **`api_register.py`**: Styles for index.html.
