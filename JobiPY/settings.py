@@ -29,6 +29,7 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOST').split(' ')
+CSRF_TRUSTED_ORIGINS = ['https://jobipy.onrender.com']
 
 # Application definition
 
@@ -87,12 +88,24 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = { # type: ignore
+# Development
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'jobipydb',
+#         'USER': 'jobipydb_user',
+#         'PASSWORD': 'gKtEiyjBMBe0u4j0BGrCA9Tg0FH5wmwJ',
+#         'HOST': 'dpg-crk60g52ng1s73fprsqg-a.singapore-postgres.render.com',
+#         'PORT': '5432',
+#     }
+# }
+
+# Production
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
     }
 }
-
 database_url = os.environ.get('DATABASE_URL')
 
 DATABASES['default'] = dj_database_url.parse(database_url)
