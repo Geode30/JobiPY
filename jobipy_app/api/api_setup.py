@@ -27,16 +27,15 @@ def api_setup(request):
             user.city = city
             user.save()
             
-            pdf_path = user.resume.path
-            output_path = 'media/output'
+            # pdf_path = user.resume.path
+            # output_path = 'media/output'
             
-            if not os.path.exists(output_path):
-                os.makedirs(output_path)
+            # if not os.path.exists(output_path):
+            #     os.makedirs(output_path)
                 
-            convert_pdf_to_jpg = pdf2jpg.convert_pdf2jpg(pdf_path, output_path, pages="ALL")
-            print(convert_pdf_to_jpg)
-            user.resume_image = convert_pdf_to_jpg[0]['output_jpgfiles'][0]
-            user.save()
+            # convert_pdf_to_jpg = pdf2jpg.convert_pdf2jpg(pdf_path, output_path, pages="ALL")
+            # user.resume_image = convert_pdf_to_jpg[0]['output_jpgfiles'][0]
+            # user.save()
             
             preferences = Preferences(user=user, industry=industry, minimum_base_pay=minimum_base_pay, per=per, job_type=job_type, currency=currency)
             preferences.save()
