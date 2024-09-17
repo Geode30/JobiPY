@@ -34,6 +34,7 @@ def api_setup(request):
                 os.makedirs(output_path)
                 
             convert_pdf_to_jpg = pdf2jpg.convert_pdf2jpg(pdf_path, output_path, pages="ALL")
+            print(convert_pdf_to_jpg)
             user.resume_image = convert_pdf_to_jpg[0]['output_jpgfiles'][0]
             user.save()
             
