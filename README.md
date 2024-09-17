@@ -23,6 +23,10 @@ The complexity of this project surpasses that of the previous commerce and netwo
 ## File Descriptions
 
 - **`manage.py`**: A command-line utility that lets you interact with this Django project. It provides commands for running the development server, managing migrations, and more.
+- **`JobiPY`**: The main Django project directory.
+   - **`settings.py`**: Contains the settings and configuration for the Django project.
+   - **`urls.py`**: Defines the URL routing for the project.
+   - **`asgi.py`**: Configured with ASGI to support WebSocket functionality, as opposed to WSGI.
 - **`jobipy_app/`**: The app directory for managing job-related functionality.
   - **`models.py`**: Defines the data models for user profiles, user preferences, job postings, job applications, conversations, and messages.
   - **`views.py`**: Contains the logic for displaying HTML pages.
@@ -43,17 +47,17 @@ The complexity of this project surpasses that of the previous commerce and netwo
      - **`message.html`**: HTML file for chat messages with a message container.
   - **`static/jobipy/`**: Contains static files such as CSS, JavaScript, and images used throughout the project.
      - **`css/`**: Contains CSS files for styling html pages.
-        - **`layout.css`**: Styles for layout.html.
-        - **`index.css`**: Styles for index.html.
-        - **`register.css`**: Styles for register.html.
-        - **`login.css`**: Styles for login.html.
-        - **`setup.css`**: Styles for setup.html.
-        - **`jobs.css`**: Styles for layout.html.
-        - **`profile.css`**: Styles for layout.html.
-        - **`activities.css`**: Styles for layout.html.
-        - **`posted.css`**: Styles for layout.html.
-        - **`post.css`**: Styles for layout.html.
-        - **`message.css`**: Styles for layout.html.
+        - **`layout.css`**: Styles for `layout.html`.
+        - **`index.css`**: Styles for `index.html`.
+        - **`register.css`**: Styles for `register.html`.
+        - **`login.css`**: Styles for `login.html`.
+        - **`setup.css`**: Styles for `setup.html`.
+        - **`jobs.css`**: Styles for `jobs.html`.
+        - **`profile.css`**: Styles for `profile.html`.
+        - **`activities.css`**: Styles for `activities.html`.
+        - **`posted.css`**: Styles for `posted.html`.
+        - **`post.css`**: Styles for `post.html`.
+        - **`message.css`**: Styles for `message.html`.
      - **`images/`**: Contains images used as icons on buttons.
      - **`scripts/`**: Contains Javascript files for making the html pages interactive.
         - **`index.js`**: Functions for `index.html`, such as job posting searches and filtering.
