@@ -1,8 +1,8 @@
-# JobiPY
+# Jobipy
 
 ## Project Overview
 
-The Job Portal App is a web application designed to connect job seekers with employers. Users can browse through job postings, apply for jobs, and employers can post new job opportunities. This app aims to streamline the job search process and make it easier for both job seekers and employers to find suitable matches. JobiPY is developed using Javascript, JQuery, HTML, and SASS for the frontend, Python and Django for the backend, and PostgreSQL as the database.
+Jobipy is a web application designed to connect job seekers with employers. Users can browse through job postings, apply for jobs, and employers can post new job opportunities. This app aims to streamline the job search process and make it easier for both job seekers and employers to find suitable matches. JobiPY is developed using Javascript, JQuery, HTML, and SASS for the frontend, Python and Django for the backend, and PostgreSQL as the database.
 
 ## Distinctiveness and Complexity
 
@@ -78,17 +78,17 @@ The complexity of this project surpasses that of the previous commerce and netwo
         - **`menuAnimations.js`**: Used to trigger menu animations.
         - **`toIndex.js`**: Used to have the app name a function to either send the user to index if they are not logged in ro to jobs if they are logged in.
   - **`api/`**: Contains the logic for API endpoints.
-     - **`api_index.py`**: Styles for layout.html.
-     - **`api_register.py`**: Styles for index.html.
-     - **`api_login.py`**: Styles for register.html.
-     - **`api_setup.py`**: Styles for login.html.
-     - **`api_jobs.py`**: Styles for setup.html.
-     - **`api_profile.py`**: Styles for layout.html.
-     - **`api_activities.py`**: Styles for layout.html.
-     - **`api_posted.py`**: Styles for layout.html.
-     - **`api_post.py`**: Styles for layout.html.
-     - **`api_message.py`**: Styles for layout.html.
-     - **`api_overall.py`**: Styles for layout.html.
+     - **`api_index.py`**: Contains a function to send job post data such as job id, job title, company, pay and etc.
+     - **`api_register.py`**: Contains a function that creates an account for user.
+     - **`api_login.py`**: Contains a function that verifies user credentials giving them access to login.
+     - **`api_setup.py`**: Contains functions to create a new preference and send preference data.
+     - **`api_jobs.py`**: Contains functions to send job posting data, specific job posts based on search, and create an application to a job post.
+     - **`api_profile.py`**: Contains a function to replace the current resume to a new one.
+     - **`api_activities.py`**: Contains a function to send job posting data that the user applied to.
+     - **`api_posted.py`**: Contains functions to send job posting data that the user has posted, viewing the resume of the users who applied, creating a group name for messages, creating a conversation, and setting the applications status.
+     - **`api_post.py`**: Contains a function to create a new job post.
+     - **`api_message.py`**: Contains functions to retrieve the conversation's group name and to send a message.
+     - **`api_overall.py`**: Contains functions to send data about the user, for logging out, for sending notifications, for reading messages, and for viewing application status
 
 - **`requirements.txt`**: Lists the Python packages required to run the application.
 
@@ -96,6 +96,6 @@ The complexity of this project surpasses that of the previous commerce and netwo
 
 1. **Clone the Repository**
 
-   ```bash
+   ```cmd
    git clone https://github.com/your-username/job-portal-app.git
    cd job-portal-app
