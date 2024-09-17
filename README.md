@@ -96,6 +96,27 @@ The complexity of this project surpasses that of the previous commerce and netwo
 
 1. **Clone the Repository**
 
-   ```cmd
-   git clone https://github.com/your-username/job-portal-app.git
-   cd job-portal-app
+   ```
+   git clone https://github.com/Geode30/JobiPY.git
+   cd JobiPY
+
+2. **Create a virtual environment**
+
+   ```
+   python -m venv env
+   env\Scripts\activate 
+
+3. **Install dependencies**
+
+   ```
+   python install -r requirements.txt
+
+4. **Apply Migrations**
+
+   ```
+   python manage.py migrate
+
+2. **Start the server**
+
+   ```
+   python manage.py runserver
