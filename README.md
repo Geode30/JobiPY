@@ -23,198 +23,66 @@ The complexity of this project surpasses that of the previous commerce and netwo
 ## File Descriptions
 
 - **`manage.py`**: A command-line utility that lets you interact with this Django project. It provides commands for running the development server, managing migrations, and more.
-
-**JobiPY/:**  
-The root directory for the Django project.
-
-**settings.py:**  
-Contains configuration settings for the Django project.
-
-**urls.py:**  
-Manages URL routing for the project.
-
-**asgi.py:**  
-Configured for ASGI to support WebSocket functionality, unlike WSGI.
-
-**jobipy_app/:**  
-Directory for the app handling job-related features.
-
-**models.py:**  
-Defines data models for user profiles, preferences, job postings, applications, conversations, and messages.
-
-**views.py:**  
-Contains logic for rendering HTML pages.
-
-**urls.py:**  
-Routes URLs to both HTML pages and APIs.
-
-**consumers.py:**  
-Implements WebSocket consumers for real-time communication, including messaging and notifications.
-
-**routing.py:**  
-Defines WebSocket URL routing for Django Channels.
-
-**templates/jobipy/:**  
-Contains HTML templates for rendering web pages.
-
-- **layout.html:**  
-  Layout HTML file including header and title.
-
-- **index.html:**  
-  Homepage HTML file shown to users who are not logged in.
-
-- **register.html:**  
-  Sign-up page HTML file with a registration form.
-
-- **login.html:**  
-  Sign-in page HTML file with a login form.
-
-- **setup.html:**  
-  HTML file for setting up job preferences with a preference form.
-
-- **jobs.html:**  
-  HTML file listing available jobs with containers for job postings and descriptions.
-
-- **profile.html:**  
-  HTML file displaying profile information, including a resume image.
-
-- **activities.html:**  
-  HTML file showing applied jobs, with containers for job postings the user has applied to.
-
-- **posted.html:**  
-  HTML file for jobs posted by the user as an employer, including containers for job postings and descriptions.
-
-- **post.html:**  
-  HTML file for creating a new job post with a job post form.
-
-- **message.html:**  
-  HTML file for chat messages with a message container.
-
-**static/jobipy/:**  
-Contains static files such as CSS, JavaScript, and images used across the project.
-
-- **css/:**  
-  Contains CSS files for styling HTML pages.
-
-  - **layout.css:**  
-    Styles for `layout.html`.
-
-  - **index.css:**  
-    Styles for `index.html`.
-
-  - **register.css:**  
-    Styles for `register.html`.
-
-  - **login.css:**  
-    Styles for `login.html`.
-
-  - **setup.css:**  
-    Styles for `setup.html`.
-
-  - **jobs.css:**  
-    Styles for `jobs.html`.
-
-  - **profile.css:**  
-    Styles for `profile.html`.
-
-  - **activities.css:**  
-    Styles for `activities.html`.
-
-  - **posted.css:**  
-    Styles for `posted.html`.
-
-  - **post.css:**  
-    Styles for `post.html`.
-
-  - **message.css:**  
-    Styles for `message.html`.
-
-- **images/:**  
-  Contains icons used on buttons.
-
-- **scripts/:**  
-  Contains JavaScript files for adding interactivity to HTML pages.
-
-  - **index.js:**  
-    Functions for `index.html`, such as job posting searches and filtering.
-
-  - **register.js:**  
-    Functions for `register.html`, including account creation.
-
-  - **login.js:**  
-    Functions for `login.html`, handling user login.
-
-  - **setup.js:**  
-    Functions for `setup.html`, checking and creating user preferences.
-
-  - **jobs.js:**  
-    Functions for `jobs.html`, retrieving job postings based on user preferences and applying for jobs.
-
-  - **profile.js:**  
-    Functions for `profile.html`, viewing and updating user details and resume.
-
-  - **activities.js:**  
-    Functions for `activities.html`, displaying jobs the user has applied to.
-
-  - **posted.js:**  
-    Functions for `posted.html`, managing job posts as an employer, viewing applicants, and messaging them.
-
-  - **post.js:**  
-    Functions for `post.html`, allowing the creation of new job posts.
-
-  - **message.js:**  
-    Functions for `message.html`, enabling chat messages about applications.
-
-  - **overall.js:**  
-    Functions for notifications, including message updates and application status changes.
-
-  - **menu.js:**  
-    Styles the header menus.
-
-  - **menuNoTitle.js:**  
-    Styles menus for pages not in the main navigation, like `message` and `post`.
-
-  - **menuAnimations.js:**  
-    Triggers animations for menus.
-
-  - **toIndex.js:**  
-    Determines if a user should be directed to the index page or the jobs page based on login status.
-
-**api/:**  
-Contains API endpoint logic.
-
-- **api_index.py:**  
-  Functions to provide job post data including job ID, title, company, pay, etc.
-
-- **api_register.py:**  
-  Functions to create a new user account.
-
-- **api_login.py:**  
-  Functions to verify user credentials for login access.
-
-- **api_setup.py:**  
-  Functions to create and manage user preferences.
-
-- **api_jobs.py:**  
-  Functions to handle job posting data, search for specific jobs, and apply for jobs.
-
-- **api_profile.py:**  
-  Functions to update the user’s resume.
-
-- **api_activities.py:**  
-  Functions to retrieve job postings that the user has applied for.
-
-- **api_posted.py:**  
-  Functions to manage job postings by the user, view applicant resumes, create message groups, and manage application statuses.
-
-- **api_post.py:**  
-  Functions to create a new job post.
-
-- **api_message.py:**  
-  Functions to retrieve group names for conversations and send messages.
-
-- **api_overall.py:**  
-  Functions for user data, logging out, sending notifications, reading messages, and checking application statuses.
+- **`jobipy_app/`**: The app directory for managing job-related functionality.
+  - **`models.py`**: Defines the data models for user profiles, user preferences, job postings, job applications, conversations, and messages.
+  - **`views.py`**: Contains the logic for displaying HTML pages.
+  - **`urls.py`**: Routes URLs to HTML pages and API.
+  - **`consumers.py`**: Defines WebSocket consumers that handle real-time communication between the server and client, such as messaging and notifications.
+  - **`routing.py`**: Used to define the WebSocket URL routing for Django Channels.
+  - **`templates/jobipy/`**: HTML templates for rendering web pages.
+     - **`layout.html`**: HTML file for the layout. Contains header and title.
+     - **`index.html`**: HTML file for the homepage, this is the page that is shown if a user is not logged in.
+     - **`register.html`**: HTML file for sign up page. Contains a sign up form.
+     - **`login.html`**: HTML file for sign in page. Contains a log in form.
+     - **`setup.html`**: HTML file for the setting up job preferences. Contains a preference form.
+     - **`jobs.html`**: HTML file for available jobs to apply. Contains different containers for job postings and descriptions.
+     - **`profile.html`**: HTML file for profile information. Contains container for profile information and an image for resume.
+     - **`activities.html`**: HTML file for applied jobs. Contains different containers for job postings that the user applied to and descriptions.
+     - **`posted.html`**: HTML file for jobs that is posted as employer. Contains different containers for job postings that the user posted as employer and descriptions.
+     - **`post.html`**: HTML file for creating a job post. Contains a job post form.
+     - **`message.html`**: HTML file for chat messages. Contains a container for messages.
+  - **`static/jobipy/`**: Contains static files such as CSS, JavaScript, and images used throughout the project.
+     - **`css/`**: Contains CSS files for styling html pages.
+        - **`layout.css`**: Styles for layout.html.
+        - **`index.css`**: Styles for index.html.
+        - **`register.css`**: Styles for register.html.
+        - **`login.css`**: Styles for login.html.
+        - **`setup.css`**: Styles for setup.html.
+        - **`jobs.css`**: Styles for layout.html.
+        - **`profile.css`**: Styles for layout.html.
+        - **`activities.css`**: Styles for layout.html.
+        - **`posted.css`**: Styles for layout.html.
+        - **`post.css`**: Styles for layout.html.
+        - **`message.css`**: Styles for layout.html.
+     - **`images/`**: Contains images used as icons on buttons.
+     - **`scripts/`**: Contains Javascript files for making the html pages interactive.
+        - **`index.js`**: Contains functions needed for index.html. Getting job postings by searching or filtering industry.
+        - **`register.js`**: Contains functions needed for register.html. Creating new account.
+        - **`login.js`**: Contains functions needed for login.html. Logging in the user.
+        - **`setup.js`**: Contains functions needed for setup.html. Checking if the user has preference or not, if not, then create one.
+        - **`jobs.js`**: Contains functions needed for jobs.html. Getting job postings based on user's preferences, Apply to any job post.
+        - **`profile.js`**: Contains functions needed for profile.html. See the user's details as well as their resume, they can modify their preferences and replace resume here.
+        - **`activities.js`**: Contains functions needed for activities.html. See the job posts that the user had applied to.
+        - **`posted.js`**: Contains functions needed for posted.html. See the posted jobs as employer, they can also see the users who applied to a job post and they can send them a message.
+        - **`post.js`**: Contains functions needed for post.html. Let the user create a new job post.
+        - **`message.js`**: Contains functions needed for message.html. Let the user send a message to chat about the application.
+        - **`overall.js`**: Contains functions needed for notifications like updated messages and application status changes. 
+        - **`menu.js`**: Used to style the menus in header.
+        - **`menuNoTitle.js`**: Used to style the menus but this script is used by pages that are not in menus like message and post.
+        - **`menuAnimations.js`**: Used to trigger menu animations.
+        - **`toIndex.js`**: Used to have the app name a function to either send the user to index if they are not logged in ro to jobs if they are logged in.
+  - **`api/`**: Contains the logic for API endpoints.
+     - **`api_index.py`**: Contains a function to send job post data such as job id, job title, company, pay and etc.
+     - **`api_register.py`**: Contains a function that creates an account for user.
+     - **`api_login.py`**: Contains a function that verifies user credentials giving them access to login.
+     - **`api_setup.py`**: Contains functions to create a new preference and send preference data.
+     - **`api_jobs.py`**: Contains functions to send job posting data, specific job posts based on search, and create an application to a job post.
+     - **`api_profile.py`**: Contains a function to replace the current resume to a new one.
+     - **`api_activities.py`**: Contains a function to send job posting data that the user applied to.
+     - **`api_posted.py`**: Contains functions to send job posting data that the user has posted, viewing the resume of the users who applied, creating a group name for messages, creating a conversation, and setting the applications status.
+     - **`api_post.py`**: Contains a function to create a new job post.
+     - **`api_message.py`**: Contains functions to retrieve the conversation's group name and to send a message.
+     - **`api_overall.py`**: Contains functions to send data about the user, for logging out, for sending notifications, for reading messages, and for viewing application status
 - **`requirements.txt`**: Lists the Python packages required to run the application.
 
 ## How to Run the Application
