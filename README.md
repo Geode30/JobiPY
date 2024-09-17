@@ -35,11 +35,61 @@ The complexity of this project surpasses that of the previous commerce and netwo
   - **`urls.py`**: Routes URLs to HTML pages and API.
   - **`consumers.py`**: Defines WebSocket consumers that handle real-time communication between the server and client, such as messaging and notifications.
   - **`routing.py`**: Used to define the WebSocket URL routing for Django Channels.
-  - **`templates/`**: HTML templates for rendering job-related pages.
-  - **`static/`**: Contains static files such as CSS, JavaScript, and images used throughout the project.
+  - **`templates/jobipy/`**: HTML templates for rendering web pages.
+     - **`layout.html`**: HTML file for the layout. Contains header and title.
+     - **`index.html`**: HTML file for the homepage, this is the page that is shown if a user is not logged in.
+     - **`register.html`**: HTML file for sign up page.
+     - **`login.html`**: HTML file for sign in page.
+     - **`setup.html`**: HTML file for the setting up job preferences.
+     - **`jobs.html`**: HTML file for available jobs to apply.
+     - **`profile.html`**: HTML file for profile information.
+     - **`activities.html`**: HTML file for applied jobs.
+     - **`posted.html`**: HTML file for jobs that is posted as employer.
+     - **`post.html`**: HTML file for creating a job post.
+     - **`message.html`**: HTML file for chat messages.
+  - **`static/jobipy/`**: Contains static files such as CSS, JavaScript, and images used throughout the project.
+     - **`css/`**: Contains CSS files for styling html pages.
+        - **`layout.css`**: Styles for layout.html.
+        - **`index.css`**: Styles for index.html.
+        - **`register.css`**: Styles for register.html.
+        - **`login.css`**: Styles for login.html.
+        - **`setup.css`**: Styles for setup.html.
+        - **`jobs.css`**: Styles for layout.html.
+        - **`profile.css`**: Styles for layout.html.
+        - **`activities.css`**: Styles for layout.html.
+        - **`posted.css`**: Styles for layout.html.
+        - **`post.css`**: Styles for layout.html.
+        - **`message.css`**: Styles for layout.html.
+       **`images/`**: Contains images used as icons on buttons.
+       **`scripts/`**: Contains Javascript files for making the html pages interactive.
+        - **`index.js`**: Styles for layout.html.
+        - **`register.js`**: Styles for register.html.
+        - **`login.js`**: Styles for login.html.
+        - **`setup.js`**: Styles for setup.html.
+        - **`jobs.js`**: Styles for layout.html.
+        - **`profile.js`**: Styles for layout.html.
+        - **`activities.js`**: Styles for layout.html.
+        - **`posted.js`**: Styles for layout.html.
+        - **`post.js`**: Styles for layout.html.
+        - **`message.js`**: Styles for layout.html.
+        - **`overall.js`**: Styles for index.html.
+        - **`menu.js`**: Styles for index.html.
+        - **`menuNoTitle.js`**: Styles for index.html.
+        - **`toIndex.js`**: Styles for index.html.
   - **`api/`**: Contains the logic for API endpoints.
+     - **`api_index.py`**: Styles for layout.html.
+     - **`api_register.py`**: Styles for index.html.
+     - **`api_login.py`**: Styles for register.html.
+     - **`api_setup.py`**: Styles for login.html.
+     - **`api_jobs.py`**: Styles for setup.html.
+     - **`api_profile.py`**: Styles for layout.html.
+     - **`api_activities.py`**: Styles for layout.html.
+     - **`api_posted.py`**: Styles for layout.html.
+     - **`api_post.py`**: Styles for layout.html.
+     - **`api_message.py`**: Styles for layout.html.
+     - **`api_overall.py`**: Styles for layout.html.
 
-- **`requirements.txt`**: Lists the Python packages required to run the application. (To be created based on your project's dependencies.)
+- **`requirements.txt`**: Lists the Python packages required to run the application.
 
 ## How to Run the Application
 
